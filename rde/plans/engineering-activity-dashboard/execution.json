@@ -70,7 +70,18 @@
     {
       "id": "t-consumption-dashboard",
       "status": "done",
-      "completedAt": "2026-11-24T17:31:24.798Z"
+      "completedAt": "2026-11-24T17:31:24.798Z",
+      "commit": "ca13371",
+      "runId": "2026-11-24T1731Z-only-dirty",
+      "apply": {
+        "env": "github",
+        "commit": "ca13371632bad8e91c34836bf0d3673651912566",
+        "at": "2026-11-24T17:31:25.334Z",
+        "status": "applied",
+        "transforms": []
+      }
     }
-  ]
+  ],
+  "finishedAt": "2026-11-24T17:31:56.604Z",
+  "finalRunId": "2026-11-24T1731Z-full"
 }

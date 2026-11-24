@@ -162,6 +162,179 @@
       "deferred": [],
       "failing": [],
       "waived": []
+    },
+    {
+      "runId": "2026-11-24T1731Z-only-dirty",
+      "mode": "only-dirty",
+      "at": "2026-11-24T17:31:31.299Z",
+      "trigger": "complete-task",
+      "taskId": "t-consumption-dashboard",
+      "status": "passed",
+      "dirty": [
+        "ca-prs-opened",
+        "ca-prs-merged",
+        "ca-open-prs",
+        "ca-median-hours-to-merge",
+        "ca-prs-opened-per-week",
+        "ca-prs-merged-per-week",
+        "ca-commits-per-week",
+        "ca-active-committers-per-week",
+        "ca-top-committers",
+        "ca-review-comments-per-week",
+        "ca-reviewed-prs-per-week",
+        "ca-top-reviewers",
+        "ca-issues-opened-per-week",
+        "ca-issues-closed-per-week",
+        "ca-open-issues"
+      ],
+      "ran": [
+        "ca-prs-opened",
+        "ca-prs-merged",
+        "ca-open-prs",
+        "ca-median-hours-to-merge",
+        "ca-prs-opened-per-week",
+        "ca-prs-merged-per-week",
+        "ca-commits-per-week",
+        "ca-active-committers-per-week",
+        "ca-top-committers",
+        "ca-review-comments-per-week",
+        "ca-reviewed-prs-per-week",
+        "ca-top-reviewers",
+        "ca-issues-opened-per-week",
+        "ca-issues-closed-per-week",
+        "ca-open-issues"
+      ],
+      "deferred": [],
+      "failing": [],
+      "waived": []
+    },
+    {
+      "runId": "2026-11-24T1731Z-full",
+      "mode": "full",
+      "at": "2026-11-24T17:31:56.415Z",
+      "trigger": "finish",
+      "status": "passed",
+      "dirty": [
+        "ca-prs-opened",
+        "ca-prs-merged",
+        "ca-open-prs",
+        "ca-median-hours-to-merge",
+        "ca-prs-opened-per-week",
+        "ca-prs-merged-per-week",
+        "ca-commits-per-week",
+        "ca-active-committers-per-week",
+        "ca-top-committers",
+        "ca-review-comments-per-week",
+        "ca-reviewed-prs-per-week",
+        "ca-top-reviewers",
+        "ca-issues-opened-per-week",
+        "ca-issues-closed-per-week",
+        "ca-open-issues",
+        "sa-human-pr-count",
+        "sa-human-commit-count",
+        "sa-human-review-comment-count",
+        "sa-human-issue-count",
+        "sa-human-open-prs",
+        "sa-human-median-hours-to-merge",
+        "sa-human-reviewed-prs",
+        "tt-fct-pull-requests",
+        "tt-fct-commits",
+        "tt-fct-pr-review-comments",
+        "tt-fct-issues",
+        "dc-fct-pull-requests-unique",
+        "dc-fct-pull-requests-key-present",
+        "dc-fct-pull-requests-rows",
+        "dc-fct-pull-requests-hours-non-negative",
+        "dc-fct-commits-unique",
+        "dc-fct-commits-key-present",
+        "dc-fct-commits-rows",
+        "dc-fct-pr-review-comments-unique",
+        "dc-fct-pr-review-comments-key-present",
+        "dc-fct-pr-review-comments-rows",
+        "dc-fct-pr-review-comments-pr-ref",
+        "dc-fct-issues-unique",
+        "dc-fct-issues-key-present",
+        "dc-fct-issues-rows",
+        "dc-fct-issues-hours-non-negative",
+        "tt-stg-pull-requests",
+        "tt-stg-commits",
+        "tt-stg-pr-review-comments",
+        "tt-stg-issues",
+        "dc-stg-pull-requests-unique",
+        "dc-stg-pull-requests-key-present",
+        "dc-stg-pull-requests-rows",
+        "dc-stg-commits-unique",
+        "dc-stg-commits-key-present",
+        "dc-stg-commits-rows",
+        "dc-stg-pr-review-comments-unique",
+        "dc-stg-pr-review-comments-key-present",
+        "dc-stg-pr-review-comments-rows",
+        "dc-stg-issues-unique",
+        "dc-stg-issues-key-present",
+        "dc-stg-issues-fewer-than-raw"
+      ],
+      "ran": [
+        "tt-stg-pull-requests",
+        "tt-stg-commits",
+        "tt-stg-pr-review-comments",
+        "tt-stg-issues",
+        "dc-stg-pull-requests-unique",
+        "dc-stg-pull-requests-key-present",
+        "dc-stg-pull-requests-rows",
+        "dc-stg-commits-unique",
+        "dc-stg-commits-key-present",
+        "dc-stg-commits-rows",
+        "dc-stg-pr-review-comments-unique",
+        "dc-stg-pr-review-comments-key-present",
+        "dc-stg-pr-review-comments-rows",
+        "dc-stg-issues-unique",
+        "dc-stg-issues-key-present",
+        "dc-stg-issues-fewer-than-raw",
+        "tt-fct-pull-requests",
+        "tt-fct-commits",
+        "tt-fct-pr-review-comments",
+        "tt-fct-issues",
+        "dc-fct-pull-requests-unique",
+        "dc-fct-pull-requests-key-present",
+        "dc-fct-pull-requests-rows",
+        "dc-fct-pull-requests-hours-non-negative",
+        "dc-fct-commits-unique",
+        "dc-fct-commits-key-present",
+        "dc-fct-commits-rows",
+        "dc-fct-pr-review-comments-unique",
+        "dc-fct-pr-review-comments-key-present",
+        "dc-fct-pr-review-comments-rows",
+        "dc-fct-pr-review-comments-pr-ref",
+        "dc-fct-issues-unique",
+        "dc-fct-issues-key-present",
+        "dc-fct-issues-rows",
+        "dc-fct-issues-hours-non-negative",
+        "sa-human-pr-count",
+        "sa-human-commit-count",
+        "sa-human-review-comment-count",
+        "sa-human-issue-count",
+        "sa-human-open-prs",
+        "sa-human-median-hours-to-merge",
+        "sa-human-reviewed-prs",
+        "ca-prs-opened",
+        "ca-prs-merged",
+        "ca-open-prs",
+        "ca-median-hours-to-merge",
+        "ca-prs-opened-per-week",
+        "ca-prs-merged-per-week",
+        "ca-commits-per-week",
+        "ca-active-committers-per-week",
+        "ca-top-committers",
+        "ca-review-comments-per-week",
+        "ca-reviewed-prs-per-week",
+        "ca-top-reviewers",
+        "ca-issues-opened-per-week",
+        "ca-issues-closed-per-week",
+        "ca-open-issues"
+      ],
+      "deferred": [],
+      "failing": [],
+      "waived": []
     }
   ],
   "overrides": [],
@@ -362,6 +535,117 @@
         }
       ],
       "drift": []
+    },
+    {
+      "id": "op-bd9e4fd2-607c-46d8-8475-8aee925f470d",
+      "at": "2026-11-24T17:31:25.334Z",
+      "env": "github",
+      "commit": "ca13371632bad8e91c34836bf0d3673651912566",
+      "trigger": "complete-task",
+      "taskId": "t-consumption-dashboard",
+      "scope": [],
+      "status": "applied",
+      "transforms": [
+        {
+          "id": "transform:stg_commits",
+          "name": "stg_commits",
+          "status": "not-run"
+        },
+        {
+          "id": "transform:stg_issues",
+          "name": "stg_issues",
+          "status": "not-run"
+        },
+        {
+          "id": "transform:stg_pr_review_comments",
+          "name": "stg_pr_review_comments",
+          "status": "not-run"
+        },
+        {
+          "id": "transform:stg_pull_requests",
+          "name": "stg_pull_requests",
+          "status": "not-run"
+        },
+        {
+          "id": "transform:fct_pr_review_comments",
+          "name": "fct_pr_review_comments",
+          "status": "not-run"
+        },
+        {
+          "id": "transform:fct_commits",
+          "name": "fct_commits",
+          "status": "not-run"
+        },
+        {
+          "id": "transform:fct_pull_requests",
+          "name": "fct_pull_requests",
+          "status": "not-run"
+        },
+        {
+          "id": "transform:fct_issues",
+          "name": "fct_issues",
+          "status": "not-run"
+        }
+      ],
+      "drift": []
+    },
+    {
+      "id": "op-48d80ec4-a31f-4550-99c7-3bbd763a02f0",
+      "at": "2026-11-24T17:31:52.505Z",
+      "env": "github",
+      "commit": "ca13371632bad8e91c34836bf0d3673651912566",
+      "trigger": "finish",
+      "scope": [],
+      "status": "applied",
+      "transforms": [
+        {
+          "id": "transform:stg_commits",
+          "name": "stg_commits",
+          "status": "not-run"
+        },
+        {
+          "id": "transform:stg_issues",
+          "name": "stg_issues",
+          "status": "not-run"
+        },
+        {
+          "id": "transform:stg_pr_review_comments",
+          "name": "stg_pr_review_comments",
+          "status": "not-run"
+        },
+        {
+          "id": "transform:stg_pull_requests",
+          "name": "stg_pull_requests",
+          "status": "not-run"
+        },
+        {
+          "id": "transform:fct_pr_review_comments",
+          "name": "fct_pr_review_comments",
+          "status": "not-run"
+        },
+        {
+          "id": "transform:fct_commits",
+          "name": "fct_commits",
+          "status": "not-run"
+        },
+        {
+          "id": "transform:fct_pull_requests",
+          "name": "fct_pull_requests",
+          "status": "not-run"
+        },
+        {
+          "id": "transform:fct_issues",
+          "name": "fct_issues",
+          "status": "not-run"
+        }
+      ],
+      "drift": []
     }
-  ]
+  ],
+  "finalRun": {
+    "runId": "2026-11-24T1731Z-full",
+    "at": "2026-11-24T17:31:56.415Z",
+    "status": "passed",
+    "waived": []
+  }
 }
