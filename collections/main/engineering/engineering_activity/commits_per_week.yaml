@@ -1,0 +1,27 @@
+name: Commits per week
+description: Commits authored by people per week (by authored_at), previous 90 days. Commit count measure over the Human commits segment. Commit data starts Aug 2026.
+entity_id: Er2yXNpWTBLmfB94x5F_P
+creator_id: internal@metabase.com
+display: bar
+collection_id: qmh6DSz4edO1bX0emX0I2
+dashboard_id: IJZULXcC5GO4JCVIVDrWk
+dataset_query:
+  lib/type: mbql/query
+  database: github
+  stages:
+  - lib/type: mbql.stage/mbql
+    source-table: [github, marts, fct_commits]
+    aggregation:
+    - [measure, {}, 72coMvmRlkFxVNZYmtKm3]
+    filters:
+    - [segment, {}, m0f-m9_mxNULXd9OY8Z0p]
+    - [time-interval, {}, [field, {}, [github, marts, fct_commits, authored_at]], -90, day]
+    breakout:
+    - [field, {temporal-unit: week}, [github, marts, fct_commits, authored_at]]
+parameters: []
+parameter_mappings: []
+visualization_settings: {}
+serdes/meta:
+- id: Er2yXNpWTBLmfB94x5F_P
+  label: commits_per_week
+  model: Card

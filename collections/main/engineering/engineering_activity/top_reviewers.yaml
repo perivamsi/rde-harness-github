@@ -1,0 +1,30 @@
+name: Top reviewers
+description: The 10 people who left the most review comments in the previous 90 days (by created_at). Review comment count measure over the Human review comments segment, by reviewer login.
+entity_id: inoaF8Chq-0tT8siFKHlo
+creator_id: internal@metabase.com
+display: row
+collection_id: qmh6DSz4edO1bX0emX0I2
+dashboard_id: IJZULXcC5GO4JCVIVDrWk
+dataset_query:
+  lib/type: mbql/query
+  database: github
+  stages:
+  - lib/type: mbql.stage/mbql
+    source-table: [github, marts, fct_pr_review_comments]
+    aggregation:
+    - [measure, {lib/uuid: a7dfa767-d7eb-4ea5-8129-436c875b108b}, j2HwyE0ysYvdHUq59Abd6]
+    filters:
+    - [segment, {}, LPl5f1_gu3k3nlIRvXpTB]
+    - [time-interval, {}, [field, {}, [github, marts, fct_pr_review_comments, created_at]], -90, day]
+    breakout:
+    - [field, {}, [github, marts, fct_pr_review_comments, reviewer_login]]
+    order-by:
+    - [desc, {}, [aggregation, {}, a7dfa767-d7eb-4ea5-8129-436c875b108b]]
+    limit: 10
+parameters: []
+parameter_mappings: []
+visualization_settings: {}
+serdes/meta:
+- id: inoaF8Chq-0tT8siFKHlo
+  label: top_reviewers
+  model: Card

@@ -1,0 +1,27 @@
+name: PRs opened per week
+description: Pull requests opened by people per week (by created_at), previous 90 days. PR count measure over the Human PRs segment. The current week is incomplete.
+entity_id: v_s6Nv7IGHnZyeJue4RWV
+creator_id: internal@metabase.com
+display: line
+collection_id: qmh6DSz4edO1bX0emX0I2
+dashboard_id: IJZULXcC5GO4JCVIVDrWk
+dataset_query:
+  lib/type: mbql/query
+  database: github
+  stages:
+  - lib/type: mbql.stage/mbql
+    source-table: [github, marts, fct_pull_requests]
+    aggregation:
+    - [measure, {}, l9dkwscMe9YCxa6YTa0y-]
+    filters:
+    - [segment, {}, sesF5j1N8ubEbM9xIqcAk]
+    - [time-interval, {}, [field, {}, [github, marts, fct_pull_requests, created_at]], -90, day]
+    breakout:
+    - [field, {temporal-unit: week}, [github, marts, fct_pull_requests, created_at]]
+parameters: []
+parameter_mappings: []
+visualization_settings: {}
+serdes/meta:
+- id: v_s6Nv7IGHnZyeJue4RWV
+  label: prs_opened_per_week
+  model: Card

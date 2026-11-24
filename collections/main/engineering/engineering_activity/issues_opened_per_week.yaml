@@ -1,0 +1,27 @@
+name: Issues opened per week
+description: Issues opened by people per week (by created_at), previous 90 days, pull requests excluded. Issue count measure over the Human issues segment.
+entity_id: fFpFzP2ppc_ICwn5Nbl0B
+creator_id: internal@metabase.com
+display: bar
+collection_id: qmh6DSz4edO1bX0emX0I2
+dashboard_id: IJZULXcC5GO4JCVIVDrWk
+dataset_query:
+  lib/type: mbql/query
+  database: github
+  stages:
+  - lib/type: mbql.stage/mbql
+    source-table: [github, marts, fct_issues]
+    aggregation:
+    - [measure, {}, m6Q8AdPaYiB2e8U6wYIPc]
+    filters:
+    - [segment, {}, MSqG-Npw4pkof1phUikqz]
+    - [time-interval, {}, [field, {}, [github, marts, fct_issues, created_at]], -90, day]
+    breakout:
+    - [field, {temporal-unit: week}, [github, marts, fct_issues, created_at]]
+parameters: []
+parameter_mappings: []
+visualization_settings: {}
+serdes/meta:
+- id: fFpFzP2ppc_ICwn5Nbl0B
+  label: issues_opened_per_week
+  model: Card

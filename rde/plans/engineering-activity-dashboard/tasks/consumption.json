@@ -31,7 +31,7 @@
       "dependsOn": [
         "t-semantic-measures"
       ],
-      "status": "pending"
+      "status": "done"
     }
   ]
 }

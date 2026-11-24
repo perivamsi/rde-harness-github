@@ -1,0 +1,28 @@
+name: Issues closed per week
+description: Issues opened by people that were closed each week (by closed_at), previous 90 days. Issue count measure over the Human issues and Closed issues segments.
+entity_id: 30OSZswA_OJG9WipcUWZo
+creator_id: internal@metabase.com
+display: bar
+collection_id: qmh6DSz4edO1bX0emX0I2
+dashboard_id: IJZULXcC5GO4JCVIVDrWk
+dataset_query:
+  lib/type: mbql/query
+  database: github
+  stages:
+  - lib/type: mbql.stage/mbql
+    source-table: [github, marts, fct_issues]
+    aggregation:
+    - [measure, {}, m6Q8AdPaYiB2e8U6wYIPc]
+    filters:
+    - [segment, {}, MSqG-Npw4pkof1phUikqz]
+    - [segment, {}, P4YqncL3exyFDewXYvIlP]
+    - [time-interval, {}, [field, {}, [github, marts, fct_issues, closed_at]], -90, day]
+    breakout:
+    - [field, {temporal-unit: week}, [github, marts, fct_issues, closed_at]]
+parameters: []
+parameter_mappings: []
+visualization_settings: {}
+serdes/meta:
+- id: 30OSZswA_OJG9WipcUWZo
+  label: issues_closed_per_week
+  model: Card

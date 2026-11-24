@@ -1,0 +1,8 @@
+name: Engineering
+description: Engineering activity reporting on the GitHub repository.
+entity_id: qmh6DSz4edO1bX0emX0I2
+slug: engineering
+serdes/meta:
+- id: qmh6DSz4edO1bX0emX0I2
+  label: engineering
+  model: Collection

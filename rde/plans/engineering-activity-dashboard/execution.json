@@ -56,11 +56,21 @@
     {
       "id": "t-semantic-measures",
       "status": "done",
-      "completedAt": "2026-11-24T17:28:50.294Z"
+      "completedAt": "2026-11-24T17:28:50.294Z",
+      "commit": "dc5ea1c",
+      "runId": "2026-11-24T1728Z-only-dirty",
+      "apply": {
+        "env": "github",
+        "commit": "dc5ea1c60827c7cbfccceabea53e712801839d9b",
+        "at": "2026-11-24T17:28:50.577Z",
+        "status": "applied",
+        "transforms": []
+      }
     },
     {
       "id": "t-consumption-dashboard",
-      "status": "pending"
+      "status": "done",
+      "completedAt": "2026-11-24T17:31:24.798Z"
     }
   ]
 }

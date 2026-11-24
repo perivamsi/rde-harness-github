@@ -1,0 +1,26 @@
+name: PRs merged
+description: Pull requests by people merged in the previous 90 days (by merged_at). PR count measure over the Human PRs and Merged PRs segments.
+entity_id: sC9CcneBngrXGLa4S2Ih4
+creator_id: internal@metabase.com
+display: scalar
+collection_id: qmh6DSz4edO1bX0emX0I2
+dashboard_id: IJZULXcC5GO4JCVIVDrWk
+dataset_query:
+  lib/type: mbql/query
+  database: github
+  stages:
+  - lib/type: mbql.stage/mbql
+    source-table: [github, marts, fct_pull_requests]
+    aggregation:
+    - [measure, {}, l9dkwscMe9YCxa6YTa0y-]
+    filters:
+    - [segment, {}, sesF5j1N8ubEbM9xIqcAk]
+    - [segment, {}, FflmgOGdpvxaGpmtBJLC7]
+    - [time-interval, {}, [field, {}, [github, marts, fct_pull_requests, merged_at]], -90, day]
+parameters: []
+parameter_mappings: []
+visualization_settings: {}
+serdes/meta:
+- id: sC9CcneBngrXGLa4S2Ih4
+  label: prs_merged
+  model: Card

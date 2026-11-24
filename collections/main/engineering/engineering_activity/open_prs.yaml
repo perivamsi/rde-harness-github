@@ -1,0 +1,25 @@
+name: Open PRs
+description: Pull requests by people that are open now, drafts included. PR count measure over the Human PRs and Open PRs segments; no date window.
+entity_id: 9Eh2lfo8TH-j_Hu3iA6Oh
+creator_id: internal@metabase.com
+display: scalar
+collection_id: qmh6DSz4edO1bX0emX0I2
+dashboard_id: IJZULXcC5GO4JCVIVDrWk
+dataset_query:
+  lib/type: mbql/query
+  database: github
+  stages:
+  - lib/type: mbql.stage/mbql
+    source-table: [github, marts, fct_pull_requests]
+    aggregation:
+    - [measure, {}, l9dkwscMe9YCxa6YTa0y-]
+    filters:
+    - [segment, {}, sesF5j1N8ubEbM9xIqcAk]
+    - [segment, {}, S17oJQups_y_hyjB_rJkR]
+parameters: []
+parameter_mappings: []
+visualization_settings: {}
+serdes/meta:
+- id: 9Eh2lfo8TH-j_Hu3iA6Oh
+  label: open_prs
+  model: Card

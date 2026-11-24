@@ -1,0 +1,30 @@
+name: Top committers
+description: The 10 people with the most commits in the previous 90 days (by authored_at). Commit count measure over the Human commits segment, by author login.
+entity_id: PEf9vvgNugDj30y4x5-nS
+creator_id: internal@metabase.com
+display: row
+collection_id: qmh6DSz4edO1bX0emX0I2
+dashboard_id: IJZULXcC5GO4JCVIVDrWk
+dataset_query:
+  lib/type: mbql/query
+  database: github
+  stages:
+  - lib/type: mbql.stage/mbql
+    source-table: [github, marts, fct_commits]
+    aggregation:
+    - [measure, {lib/uuid: 54d05f04-42ee-4f19-84a6-c58944c633fe}, 72coMvmRlkFxVNZYmtKm3]
+    filters:
+    - [segment, {}, m0f-m9_mxNULXd9OY8Z0p]
+    - [time-interval, {}, [field, {}, [github, marts, fct_commits, authored_at]], -90, day]
+    breakout:
+    - [field, {}, [github, marts, fct_commits, author_login]]
+    order-by:
+    - [desc, {}, [aggregation, {}, 54d05f04-42ee-4f19-84a6-c58944c633fe]]
+    limit: 10
+parameters: []
+parameter_mappings: []
+visualization_settings: {}
+serdes/meta:
+- id: PEf9vvgNugDj30y4x5-nS
+  label: top_committers
+  model: Card

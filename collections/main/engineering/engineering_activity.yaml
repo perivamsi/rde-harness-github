@@ -1,0 +1,282 @@
+name: Engineering activity
+description: "Draft. Weekly engineering activity on the GitHub repository over the previous 90 days: pull request flow, commits, code review and issues. Bot accounts are excluded from every number. Commit and review comment data start Aug 2026."
+entity_id: IJZULXcC5GO4JCVIVDrWk
+creator_id: internal@metabase.com
+collection_id: qmh6DSz4edO1bX0emX0I2
+width: fixed
+auto_apply_filters: true
+parameters: []
+tabs: []
+dashcards:
+- entity_id: pjPDLWTLzM09dXaY8CFmX
+  card_id: null
+  row: 0
+  col: 0
+  size_x: 24
+  size_y: 2
+  dashboard_tab_id: null
+  parameter_mappings: []
+  series: []
+  visualization_settings:
+    virtual_card: {display: text, archived: false, dataset_query: {}, visualization_settings: {}}
+    text: "**Draft.** People only: bot accounts (GitHub user type Bot or a login ending in [bot]) are excluded. Each card covers the previous 90 days by its own date (opened, merged, authored, commented or closed); Open PRs and Open issues are current counts. The current week is incomplete. Commit and review comment data start Aug 2026. Tables rebuild daily at 06:00."
+  serdes/meta:
+  - {id: IJZULXcC5GO4JCVIVDrWk, model: Dashboard}
+  - {id: pjPDLWTLzM09dXaY8CFmX, model: DashboardCard}
+- entity_id: 7Xy4uEtQC3FmxMZbMud2v
+  card_id: null
+  row: 2
+  col: 0
+  size_x: 24
+  size_y: 1
+  dashboard_tab_id: null
+  parameter_mappings: []
+  series: []
+  visualization_settings:
+    virtual_card: {display: heading, archived: false, dataset_query: {}, visualization_settings: {}}
+    text: Pull request flow
+  serdes/meta:
+  - {id: IJZULXcC5GO4JCVIVDrWk, model: Dashboard}
+  - {id: 7Xy4uEtQC3FmxMZbMud2v, model: DashboardCard}
+- entity_id: oIDZZlJCJC8YT_11AH-qm
+  card_id: PAi2IIDdjJs-uOMMmew2J
+  row: 3
+  col: 0
+  size_x: 6
+  size_y: 3
+  dashboard_tab_id: null
+  parameter_mappings: []
+  series: []
+  visualization_settings: {}
+  serdes/meta:
+  - {id: IJZULXcC5GO4JCVIVDrWk, model: Dashboard}
+  - {id: oIDZZlJCJC8YT_11AH-qm, model: DashboardCard}
+- entity_id: NabmFzH9f_Cc6H4-HgHeq
+  card_id: sC9CcneBngrXGLa4S2Ih4
+  row: 3
+  col: 6
+  size_x: 6
+  size_y: 3
+  dashboard_tab_id: null
+  parameter_mappings: []
+  series: []
+  visualization_settings: {}
+  serdes/meta:
+  - {id: IJZULXcC5GO4JCVIVDrWk, model: Dashboard}
+  - {id: NabmFzH9f_Cc6H4-HgHeq, model: DashboardCard}
+- entity_id: JsGM08WMig4yB8sk6x9zE
+  card_id: 6xPQ9YCcuSL5Y7uB6kkG3
+  row: 3
+  col: 12
+  size_x: 6
+  size_y: 3
+  dashboard_tab_id: null
+  parameter_mappings: []
+  series: []
+  visualization_settings: {}
+  serdes/meta:
+  - {id: IJZULXcC5GO4JCVIVDrWk, model: Dashboard}
+  - {id: JsGM08WMig4yB8sk6x9zE, model: DashboardCard}
+- entity_id: wqIPB27d45lkoFteUZ80I
+  card_id: 9Eh2lfo8TH-j_Hu3iA6Oh
+  row: 3
+  col: 18
+  size_x: 6
+  size_y: 3
+  dashboard_tab_id: null
+  parameter_mappings: []
+  series: []
+  visualization_settings: {}
+  serdes/meta:
+  - {id: IJZULXcC5GO4JCVIVDrWk, model: Dashboard}
+  - {id: wqIPB27d45lkoFteUZ80I, model: DashboardCard}
+- entity_id: wEOkrpDbdoDN0UIhfpWac
+  card_id: v_s6Nv7IGHnZyeJue4RWV
+  row: 6
+  col: 0
+  size_x: 12
+  size_y: 6
+  dashboard_tab_id: null
+  parameter_mappings: []
+  series: []
+  visualization_settings: {}
+  serdes/meta:
+  - {id: IJZULXcC5GO4JCVIVDrWk, model: Dashboard}
+  - {id: wEOkrpDbdoDN0UIhfpWac, model: DashboardCard}
+- entity_id: HMHMZe1XRvE5FhbsTavEI
+  card_id: RIbSU2k-ZJdRPhw5m-v6x
+  row: 6
+  col: 12
+  size_x: 12
+  size_y: 6
+  dashboard_tab_id: null
+  parameter_mappings: []
+  series: []
+  visualization_settings: {}
+  serdes/meta:
+  - {id: IJZULXcC5GO4JCVIVDrWk, model: Dashboard}
+  - {id: HMHMZe1XRvE5FhbsTavEI, model: DashboardCard}
+- entity_id: tn0rnjWa4cyYHWU-t3Qb_
+  card_id: null
+  row: 12
+  col: 0
+  size_x: 24
+  size_y: 1
+  dashboard_tab_id: null
+  parameter_mappings: []
+  series: []
+  visualization_settings:
+    virtual_card: {display: heading, archived: false, dataset_query: {}, visualization_settings: {}}
+    text: Commits
+  serdes/meta:
+  - {id: IJZULXcC5GO4JCVIVDrWk, model: Dashboard}
+  - {id: tn0rnjWa4cyYHWU-t3Qb_, model: DashboardCard}
+- entity_id: 2FAU9v8mXBRZvwOq6tTSZ
+  card_id: Er2yXNpWTBLmfB94x5F_P
+  row: 13
+  col: 0
+  size_x: 12
+  size_y: 6
+  dashboard_tab_id: null
+  parameter_mappings: []
+  series: []
+  visualization_settings: {}
+  serdes/meta:
+  - {id: IJZULXcC5GO4JCVIVDrWk, model: Dashboard}
+  - {id: 2FAU9v8mXBRZvwOq6tTSZ, model: DashboardCard}
+- entity_id: S6J4er6JGUzxyF71f0q7J
+  card_id: wg0dMABWqqW3ARWbVGlPN
+  row: 13
+  col: 12
+  size_x: 12
+  size_y: 6
+  dashboard_tab_id: null
+  parameter_mappings: []
+  series: []
+  visualization_settings: {}
+  serdes/meta:
+  - {id: IJZULXcC5GO4JCVIVDrWk, model: Dashboard}
+  - {id: S6J4er6JGUzxyF71f0q7J, model: DashboardCard}
+- entity_id: mfomO9lXnMTvmf9V0PvHL
+  card_id: PEf9vvgNugDj30y4x5-nS
+  row: 19
+  col: 0
+  size_x: 24
+  size_y: 6
+  dashboard_tab_id: null
+  parameter_mappings: []
+  series: []
+  visualization_settings: {}
+  serdes/meta:
+  - {id: IJZULXcC5GO4JCVIVDrWk, model: Dashboard}
+  - {id: mfomO9lXnMTvmf9V0PvHL, model: DashboardCard}
+- entity_id: R8RlGKCj7i28jNenytXXp
+  card_id: null
+  row: 25
+  col: 0
+  size_x: 24
+  size_y: 1
+  dashboard_tab_id: null
+  parameter_mappings: []
+  series: []
+  visualization_settings:
+    virtual_card: {display: heading, archived: false, dataset_query: {}, visualization_settings: {}}
+    text: Code review
+  serdes/meta:
+  - {id: IJZULXcC5GO4JCVIVDrWk, model: Dashboard}
+  - {id: R8RlGKCj7i28jNenytXXp, model: DashboardCard}
+- entity_id: yOvREPCQE_Liv7v9xfWdw
+  card_id: dnuIeVoRwV9OXG_FVVGRh
+  row: 26
+  col: 0
+  size_x: 12
+  size_y: 6
+  dashboard_tab_id: null
+  parameter_mappings: []
+  series: []
+  visualization_settings: {}
+  serdes/meta:
+  - {id: IJZULXcC5GO4JCVIVDrWk, model: Dashboard}
+  - {id: yOvREPCQE_Liv7v9xfWdw, model: DashboardCard}
+- entity_id: qqYORgLveQiLmWZ602dsg
+  card_id: VNJhFmdtDE8l1BmLev4Xa
+  row: 26
+  col: 12
+  size_x: 12
+  size_y: 6
+  dashboard_tab_id: null
+  parameter_mappings: []
+  series: []
+  visualization_settings: {}
+  serdes/meta:
+  - {id: IJZULXcC5GO4JCVIVDrWk, model: Dashboard}
+  - {id: qqYORgLveQiLmWZ602dsg, model: DashboardCard}
+- entity_id: gtdrU_t4nmKsy_KvTk8MI
+  card_id: inoaF8Chq-0tT8siFKHlo
+  row: 32
+  col: 0
+  size_x: 24
+  size_y: 6
+  dashboard_tab_id: null
+  parameter_mappings: []
+  series: []
+  visualization_settings: {}
+  serdes/meta:
+  - {id: IJZULXcC5GO4JCVIVDrWk, model: Dashboard}
+  - {id: gtdrU_t4nmKsy_KvTk8MI, model: DashboardCard}
+- entity_id: bXjeQwrIWcGUWCEMAQqZH
+  card_id: null
+  row: 38
+  col: 0
+  size_x: 24
+  size_y: 1
+  dashboard_tab_id: null
+  parameter_mappings: []
+  series: []
+  visualization_settings:
+    virtual_card: {display: heading, archived: false, dataset_query: {}, visualization_settings: {}}
+    text: Issues
+  serdes/meta:
+  - {id: IJZULXcC5GO4JCVIVDrWk, model: Dashboard}
+  - {id: bXjeQwrIWcGUWCEMAQqZH, model: DashboardCard}
+- entity_id: WWrqBXskueUTYVaTPDTtw
+  card_id: rJSxMVa3cEmxKnL-voB4Z
+  row: 39
+  col: 0
+  size_x: 6
+  size_y: 6
+  dashboard_tab_id: null
+  parameter_mappings: []
+  series: []
+  visualization_settings: {}
+  serdes/meta:
+  - {id: IJZULXcC5GO4JCVIVDrWk, model: Dashboard}
+  - {id: WWrqBXskueUTYVaTPDTtw, model: DashboardCard}
+- entity_id: FpMauKSBZlYiUOY2X6hAV
+  card_id: fFpFzP2ppc_ICwn5Nbl0B
+  row: 39
+  col: 6
+  size_x: 9
+  size_y: 6
+  dashboard_tab_id: null
+  parameter_mappings: []
+  series: []
+  visualization_settings: {}
+  serdes/meta:
+  - {id: IJZULXcC5GO4JCVIVDrWk, model: Dashboard}
+  - {id: FpMauKSBZlYiUOY2X6hAV, model: DashboardCard}
+- entity_id: aEmWBscnbvdzCgUSEu2sO
+  card_id: 30OSZswA_OJG9WipcUWZo
+  row: 39
+  col: 15
+  size_x: 9
+  size_y: 6
+  dashboard_tab_id: null
+  parameter_mappings: []
+  series: []
+  visualization_settings: {}
+  serdes/meta:
+  - {id: IJZULXcC5GO4JCVIVDrWk, model: Dashboard}
+  - {id: aEmWBscnbvdzCgUSEu2sO, model: DashboardCard}
+serdes/meta:
+- {id: IJZULXcC5GO4JCVIVDrWk, label: engineering_activity, model: Dashboard}

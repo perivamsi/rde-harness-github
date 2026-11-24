@@ -14,6 +14,10 @@
     },
     "t-semantic-measures": {
       "startedAt": "2026-11-24T17:27:37.176Z"
+    },
+    "t-consumption-dashboard": {
+      "startedAt": "2026-11-24T17:28:58.792Z",
+      "summary": "Added a Draft text card at the top (bot exclusion, per-card date basis, Aug 2026 data start, daily 06:00 rebuild); no dashboard filter, per the architecture choice. Reviewer: the screen review happens after merge, since nothing renders a dashboard in the Session."
     }
   },
   "runs": [
@@ -129,6 +133,35 @@
       "deferred": [],
       "failing": [],
       "waived": []
+    },
+    {
+      "runId": "2026-11-24T1728Z-only-dirty",
+      "mode": "only-dirty",
+      "at": "2026-11-24T17:28:54.901Z",
+      "trigger": "complete-task",
+      "taskId": "t-semantic-measures",
+      "status": "passed",
+      "dirty": [
+        "sa-human-pr-count",
+        "sa-human-commit-count",
+        "sa-human-review-comment-count",
+        "sa-human-issue-count",
+        "sa-human-open-prs",
+        "sa-human-median-hours-to-merge",
+        "sa-human-reviewed-prs"
+      ],
+      "ran": [
+        "sa-human-pr-count",
+        "sa-human-commit-count",
+        "sa-human-review-comment-count",
+        "sa-human-issue-count",
+        "sa-human-open-prs",
+        "sa-human-median-hours-to-merge",
+        "sa-human-reviewed-prs"
+      ],
+      "deferred": [],
+      "failing": [],
+      "waived": []
     }
   ],
   "overrides": [],
@@ -231,6 +264,59 @@
       "commit": "dce2ee5046fb0495f8f3124742890d33a342c568",
       "trigger": "complete-task",
       "taskId": "t-semantic-publish",
+      "scope": [],
+      "status": "applied",
+      "transforms": [
+        {
+          "id": "transform:stg_commits",
+          "name": "stg_commits",
+          "status": "not-run"
+        },
+        {
+          "id": "transform:stg_issues",
+          "name": "stg_issues",
+          "status": "not-run"
+        },
+        {
+          "id": "transform:stg_pr_review_comments",
+          "name": "stg_pr_review_comments",
+          "status": "not-run"
+        },
+        {
+          "id": "transform:stg_pull_requests",
+          "name": "stg_pull_requests",
+          "status": "not-run"
+        },
+        {
+          "id": "transform:fct_pr_review_comments",
+          "name": "fct_pr_review_comments",
+          "status": "not-run"
+        },
+        {
+          "id": "transform:fct_commits",
+          "name": "fct_commits",
+          "status": "not-run"
+        },
+        {
+          "id": "transform:fct_pull_requests",
+          "name": "fct_pull_requests",
+          "status": "not-run"
+        },
+        {
+          "id": "transform:fct_issues",
+          "name": "fct_issues",
+          "status": "not-run"
+        }
+      ],
+      "drift": []
+    },
+    {
+      "id": "op-35430194-3caf-4624-a131-9a06fb14db39",
+      "at": "2026-11-24T17:28:50.577Z",
+      "env": "github",
+      "commit": "dc5ea1c60827c7cbfccceabea53e712801839d9b",
+      "trigger": "complete-task",
+      "taskId": "t-semantic-measures",
       "scope": [],
       "status": "applied",
       "transforms": [
