@@ -20,12 +20,22 @@
         "dc-fct-commits-unique",
         "dc-fct-pr-review-comments-unique",
         "dc-fct-issues-unique",
-        "dc-fct-pr-review-comments-pr-ref"
+        "dc-fct-pr-review-comments-pr-ref",
+        "dc-fct-pull-requests-key-present",
+        "dc-fct-pull-requests-rows",
+        "dc-fct-pull-requests-hours-non-negative",
+        "dc-fct-commits-key-present",
+        "dc-fct-commits-rows",
+        "dc-fct-pr-review-comments-key-present",
+        "dc-fct-pr-review-comments-rows",
+        "dc-fct-issues-key-present",
+        "dc-fct-issues-rows",
+        "dc-fct-issues-hours-non-negative"
       ],
       "dependsOn": [
         "t-staging-activity"
       ],
-      "status": "pending"
+      "status": "done"
     }
   ]
 }

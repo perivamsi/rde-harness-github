@@ -1,0 +1,45 @@
+name: fct_issues
+description: "One row per issue, pull requests excluded (key: issue_number). Source: staging.stg_issues. is_open = state is open; hours_to_close = hours from created_at to closed_at, 2 decimals, null when not closed. is_bot marks bot authors."
+entity_id: ZbE7Gzg94tf4Bg6hV_wT8
+creator_id: internal@metabase.com
+collection_id: ffz_FZbOsKbe2SrOlgTvL
+source_database_id: github
+source:
+  type: query
+  query:
+    lib/type: mbql/query
+    database: github
+    stages:
+    - lib/type: mbql.stage/native
+      native: |-
+        -- One row per issue (key: issue_number). Source: staging.stg_issues.
+        -- hours_to_close: (closed_at - created_at) in hours, null when not closed.
+        SELECT
+          i.issue_number,
+          i.title,
+          i.state,
+          i.state_reason,
+          (i.state = 'open') AS is_open,
+          i.author_login,
+          i.is_bot,
+          i.created_at,
+          i.closed_at,
+          CAST(EXTRACT(EPOCH FROM (i.closed_at - i.created_at)) / 3600.0 AS numeric(12,2)) AS hours_to_close
+        FROM staging.stg_issues AS i
+      template-tags: {}
+target:
+  database: github
+  type: table
+  schema: marts
+  name: fct_issues
+tags:
+- entity_id: XVQ6Qtk4aQwBIW3TckEc2
+  position: 0
+  tag_id: u7v_vjnVSqdJ964l09olT
+  serdes/meta:
+  - id: XVQ6Qtk4aQwBIW3TckEc2
+    model: TransformTransformTag
+serdes/meta:
+- id: ZbE7Gzg94tf4Bg6hV_wT8
+  label: fct_issues
+  model: Transform

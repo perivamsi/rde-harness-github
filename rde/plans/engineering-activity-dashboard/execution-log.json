@@ -5,8 +5,94 @@
     "t-staging-activity": {
       "startedAt": "2026-11-24T17:14:21.300Z",
       "summary": "stg_pull_requests also keeps author_type (raw user_type) beside is_bot; stg_pr_review_comments yields a null pull_request_number (row kept) when the URL has no /pulls/, and a Data Check fails if that ever happens."
+    },
+    "t-marts-activity-facts": {
+      "startedAt": "2026-11-24T17:25:18.623Z"
     }
   },
-  "runs": [],
-  "overrides": []
+  "runs": [
+    {
+      "runId": "2026-11-24T1725Z-only-dirty",
+      "mode": "only-dirty",
+      "at": "2026-11-24T17:25:14.739Z",
+      "trigger": "complete-task",
+      "taskId": "t-staging-activity",
+      "status": "passed",
+      "dirty": [
+        "tt-stg-pull-requests",
+        "tt-stg-commits",
+        "tt-stg-pr-review-comments",
+        "tt-stg-issues",
+        "dc-stg-pull-requests-unique",
+        "dc-stg-pull-requests-key-present",
+        "dc-stg-pull-requests-rows",
+        "dc-stg-commits-unique",
+        "dc-stg-commits-key-present",
+        "dc-stg-commits-rows",
+        "dc-stg-pr-review-comments-unique",
+        "dc-stg-pr-review-comments-key-present",
+        "dc-stg-pr-review-comments-rows",
+        "dc-stg-issues-unique",
+        "dc-stg-issues-key-present",
+        "dc-stg-issues-fewer-than-raw"
+      ],
+      "ran": [
+        "tt-stg-pull-requests",
+        "tt-stg-commits",
+        "tt-stg-pr-review-comments",
+        "tt-stg-issues",
+        "dc-stg-pull-requests-unique",
+        "dc-stg-pull-requests-key-present",
+        "dc-stg-pull-requests-rows",
+        "dc-stg-commits-unique",
+        "dc-stg-commits-key-present",
+        "dc-stg-commits-rows",
+        "dc-stg-pr-review-comments-unique",
+        "dc-stg-pr-review-comments-key-present",
+        "dc-stg-pr-review-comments-rows",
+        "dc-stg-issues-unique",
+        "dc-stg-issues-key-present",
+        "dc-stg-issues-fewer-than-raw"
+      ],
+      "deferred": [],
+      "failing": [],
+      "waived": []
+    }
+  ],
+  "overrides": [],
+  "applies": [
+    {
+      "id": "op-2d38b433-ec48-4dee-853e-dea56b66f9f3",
+      "at": "2026-11-24T17:16:05.720Z",
+      "env": "github",
+      "commit": "ac161bdd62da63b5c0860f2c3b9cc969002b4801",
+      "trigger": "complete-task",
+      "taskId": "t-staging-activity",
+      "scope": "all",
+      "status": "applied",
+      "transforms": [
+        {
+          "id": "transform:stg_commits",
+          "name": "stg_commits",
+          "status": "succeeded"
+        },
+        {
+          "id": "transform:stg_issues",
+          "name": "stg_issues",
+          "status": "succeeded"
+        },
+        {
+          "id": "transform:stg_pr_review_comments",
+          "name": "stg_pr_review_comments",
+          "status": "succeeded"
+        },
+        {
+          "id": "transform:stg_pull_requests",
+          "name": "stg_pull_requests",
+          "status": "succeeded"
+        }
+      ],
+      "drift": []
+    }
+  ]
 }

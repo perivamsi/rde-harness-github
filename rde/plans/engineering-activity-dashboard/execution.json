@@ -4,11 +4,26 @@
     {
       "id": "t-staging-activity",
       "status": "done",
-      "completedAt": "2026-11-24T17:16:05.433Z"
+      "completedAt": "2026-11-24T17:16:05.433Z",
+      "commit": "ac161bd",
+      "runId": "2026-11-24T1725Z-only-dirty",
+      "apply": {
+        "env": "github",
+        "commit": "ac161bdd62da63b5c0860f2c3b9cc969002b4801",
+        "at": "2026-11-24T17:16:05.720Z",
+        "status": "applied",
+        "transforms": [
+          "transform:stg_commits",
+          "transform:stg_issues",
+          "transform:stg_pr_review_comments",
+          "transform:stg_pull_requests"
+        ]
+      }
     },
     {
       "id": "t-marts-activity-facts",
-      "status": "pending"
+      "status": "done",
+      "completedAt": "2026-11-24T17:26:39.042Z"
     },
     {
       "id": "t-semantic-publish",

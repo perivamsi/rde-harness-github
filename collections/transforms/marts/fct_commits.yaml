@@ -1,0 +1,40 @@
+name: fct_commits
+description: "One row per commit (key: commit_sha). Source: staging.stg_commits, columns carried as they are. authored_at is the author date; is_bot marks bot authors. Caveats: data starts Aug 2026."
+entity_id: oSEIE3minlTUH4-kxVsnI
+creator_id: internal@metabase.com
+collection_id: ffz_FZbOsKbe2SrOlgTvL
+source_database_id: github
+source:
+  type: query
+  query:
+    lib/type: mbql/query
+    database: github
+    stages:
+    - lib/type: mbql.stage/native
+      native: |-
+        -- One row per commit (key: commit_sha). Source: staging.stg_commits.
+        SELECT
+          c.commit_sha,
+          c.author_login,
+          c.committer_login,
+          c.authored_at,
+          c.is_verified,
+          c.is_bot
+        FROM staging.stg_commits AS c
+      template-tags: {}
+target:
+  database: github
+  type: table
+  schema: marts
+  name: fct_commits
+tags:
+- entity_id: GpTbcm45d8V6R7T2Vm-PR
+  position: 0
+  tag_id: u7v_vjnVSqdJ964l09olT
+  serdes/meta:
+  - id: GpTbcm45d8V6R7T2Vm-PR
+    model: TransformTransformTag
+serdes/meta:
+- id: oSEIE3minlTUH4-kxVsnI
+  label: fct_commits
+  model: Transform

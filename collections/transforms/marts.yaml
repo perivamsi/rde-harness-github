@@ -1,0 +1,9 @@
+name: Marts
+description: GitHub activity facts, one table per activity, read by the semantic layer.
+entity_id: ffz_FZbOsKbe2SrOlgTvL
+slug: marts
+namespace: transforms
+serdes/meta:
+- id: ffz_FZbOsKbe2SrOlgTvL
+  label: marts
+  model: Collection

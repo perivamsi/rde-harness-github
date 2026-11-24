@@ -1,0 +1,45 @@
+name: fct_pr_review_comments
+description: "One row per pull request review comment (key: review_comment_id). Sources: staging.stg_pr_review_comments, staging.stg_pull_requests (left join on pull_request_number for pr_author_login; a comment whose PR is not in the extract is kept with a null pr_author_login). is_bot marks bot reviewers. Caveats: data starts Aug 2026."
+entity_id: qgJOhg3aW-Z7RO0Tm7vQg
+creator_id: internal@metabase.com
+collection_id: ffz_FZbOsKbe2SrOlgTvL
+source_database_id: github
+source:
+  type: query
+  query:
+    lib/type: mbql/query
+    database: github
+    stages:
+    - lib/type: mbql.stage/native
+      native: |-
+        -- One row per review comment (key: review_comment_id).
+        -- Left join keeps comments whose PR is missing from the extract.
+        SELECT
+          c.review_comment_id,
+          c.review_id,
+          c.pull_request_number,
+          c.reviewer_login,
+          pr.author_login AS pr_author_login,
+          c.is_reply,
+          c.is_bot,
+          c.created_at
+        FROM staging.stg_pr_review_comments AS c
+        LEFT JOIN staging.stg_pull_requests AS pr
+          ON pr.pull_request_number = c.pull_request_number
+      template-tags: {}
+target:
+  database: github
+  type: table
+  schema: marts
+  name: fct_pr_review_comments
+tags:
+- entity_id: vzvj08ZezRBFT7ZOVszOP
+  position: 0
+  tag_id: u7v_vjnVSqdJ964l09olT
+  serdes/meta:
+  - id: vzvj08ZezRBFT7ZOVszOP
+    model: TransformTransformTag
+serdes/meta:
+- id: qgJOhg3aW-Z7RO0Tm7vQg
+  label: fct_pr_review_comments
+  model: Transform
