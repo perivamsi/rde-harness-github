@@ -1,0 +1,22 @@
+name: fct_pr_review_comments
+display_name: PR review comments
+description: "Draft. One row per pull request review comment (key: review_comment_id), linked to its pull request by pull_request_number. is_bot marks comments by bot accounts (GitHub user type Bot or a login ending in [bot]); use the Human review comments segment to count people only. The extract starts Aug 2026."
+db_id: github
+schema: marts
+active: true
+visibility_type: null
+field_order: database
+initial_sync_status: complete
+is_published: true
+collection_id: librarylibrarydatadat
+data_layer: final
+data_source: metabase-transform
+data_authority: computed
+transform_id: qgJOhg3aW-Z7RO0Tm7vQg
+serdes/meta:
+- id: github
+  model: Database
+- id: marts
+  model: Schema
+- id: fct_pr_review_comments
+  model: Table

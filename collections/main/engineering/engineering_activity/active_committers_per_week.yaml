@@ -1,0 +1,27 @@
+name: Active committers per week
+description: Distinct people who authored a commit each week (by authored_at), previous 90 days. Active committers measure over the Human commits segment.
+entity_id: wg0dMABWqqW3ARWbVGlPN
+creator_id: internal@metabase.com
+display: line
+collection_id: qmh6DSz4edO1bX0emX0I2
+dashboard_id: IJZULXcC5GO4JCVIVDrWk
+dataset_query:
+  lib/type: mbql/query
+  database: github
+  stages:
+  - lib/type: mbql.stage/mbql
+    source-table: [github, marts, fct_commits]
+    aggregation:
+    - [measure, {}, 4SJ866LXU8wwaiPl4Cz5w]
+    filters:
+    - [segment, {}, m0f-m9_mxNULXd9OY8Z0p]
+    - [time-interval, {}, [field, {}, [github, marts, fct_commits, authored_at]], -90, day]
+    breakout:
+    - [field, {temporal-unit: week}, [github, marts, fct_commits, authored_at]]
+parameters: []
+parameter_mappings: []
+visualization_settings: {}
+serdes/meta:
+- id: wg0dMABWqqW3ARWbVGlPN
+  label: active_committers_per_week
+  model: Card

@@ -1,0 +1,44 @@
+{
+  "plan": "engineering-activity-dashboard",
+  "layer": "semantic",
+  "tasks": [
+    {
+      "id": "t-semantic-publish",
+      "layer": "semantic",
+      "outcomeId": "eng-activity",
+      "changeIds": [
+        "c03"
+      ],
+      "guidesExcerpt": "",
+      "instructions": "Write the github Database file, the Library, Data and Metrics collection files exactly as the representation format gives them, and publish the four marts facts to the Library Data collection with display names Pull requests, Commits, PR review comments and Issues. Each table description states its grain and that is_bot marks bot accounts. Write the key field files (PKs, and fct_pr_review_comments.pull_request_number as FK to fct_pull_requests.pull_request_number). Follow the build-semantic-layer playbook.",
+      "testIds": [],
+      "dependsOn": [
+        "t-marts-activity-facts"
+      ],
+      "status": "done"
+    },
+    {
+      "id": "t-semantic-measures",
+      "layer": "semantic",
+      "outcomeId": "eng-activity",
+      "changeIds": [
+        "c04"
+      ],
+      "guidesExcerpt": "",
+      "instructions": "Write the measures and segments of c04 under each published table: counts, distinct counts and the median hours to merge measure; Human segments (is_bot false) and the Merged, Open and Closed segments. Each has a description stating its rule. Follow the build-semantic-layer playbook.",
+      "testIds": [
+        "sa-human-pr-count",
+        "sa-human-commit-count",
+        "sa-human-review-comment-count",
+        "sa-human-issue-count",
+        "sa-human-open-prs",
+        "sa-human-median-hours-to-merge",
+        "sa-human-reviewed-prs"
+      ],
+      "dependsOn": [
+        "t-semantic-publish"
+      ],
+      "status": "done"
+    }
+  ]
+}

@@ -1,0 +1,6 @@
+name: github_activity
+entity_id: u7v_vjnVSqdJ964l09olT
+serdes/meta:
+- id: u7v_vjnVSqdJ964l09olT
+  label: github_activity
+  model: TransformTag

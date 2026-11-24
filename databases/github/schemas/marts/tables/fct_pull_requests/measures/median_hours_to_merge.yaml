@@ -1,0 +1,16 @@
+name: Median hours to merge
+description: Draft. Median of hours from a pull request's opening to its merge, over merged pull requests (unmerged PRs have no value and are ignored). Pair with the Merged PRs segment and a merged_at date basis.
+entity_id: SvXEflvFokq41cKlgerl8
+creator_id: internal@metabase.com
+definition:
+  lib/type: mbql/query
+  database: github
+  stages:
+  - lib/type: mbql.stage/mbql
+    source-table: [github, marts, fct_pull_requests]
+    aggregation:
+    - [median, {}, [field, {}, [github, marts, fct_pull_requests, hours_to_merge]]]
+serdes/meta:
+- id: SvXEflvFokq41cKlgerl8
+  label: median_hours_to_merge
+  model: Measure

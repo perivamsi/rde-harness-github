@@ -1,0 +1,48 @@
+name: stg_pull_requests
+description: "One row per pull request (key: pull_request_number). Source: raw.pull_requests. Renames columns; is_merged = merged_at is not null; is_bot = GitHub user_type is Bot or the login ends in [bot]. Caveats: the extract is cut by updated_at, so older PRs may be missing."
+entity_id: l3C676-V1HRSajn1VlrgZ
+creator_id: internal@metabase.com
+collection_id: t0GnxoSsE-cf0_AXAQmOp
+source_database_id: github
+source:
+  type: query
+  query:
+    lib/type: mbql/query
+    database: github
+    stages:
+    - lib/type: mbql.stage/native
+      native: |-
+        -- One row per pull request (key: pull_request_number). Source: raw.pull_requests.
+        -- is_bot: user_type = 'Bot' or login ends in '[bot]'; nulls count as not bot.
+        SELECT
+          p.number AS pull_request_number,
+          p.id AS pull_request_id,
+          p.title,
+          p.state,
+          p.draft AS is_draft,
+          p.user_login AS author_login,
+          p.user_type AS author_type,
+          (COALESCE(p.user_type = 'Bot', false) OR COALESCE(p.user_login LIKE '%[bot]', false)) AS is_bot,
+          p.base_ref,
+          p.created_at,
+          p.closed_at,
+          p.merged_at,
+          (p.merged_at IS NOT NULL) AS is_merged
+        FROM raw.pull_requests AS p
+      template-tags: {}
+target:
+  database: github
+  type: table
+  schema: staging
+  name: stg_pull_requests
+tags:
+- entity_id: Kms0lvRvoLwCmqqv_F0VE
+  position: 0
+  tag_id: u7v_vjnVSqdJ964l09olT
+  serdes/meta:
+  - id: Kms0lvRvoLwCmqqv_F0VE
+    model: TransformTransformTag
+serdes/meta:
+- id: l3C676-V1HRSajn1VlrgZ
+  label: stg_pull_requests
+  model: Transform

@@ -1,0 +1,16 @@
+name: review_comment_id
+description: GitHub's id of the review comment.
+base_type: type/BigInteger
+database_type: int8
+semantic_type: type/PK
+table_id: [github, marts, fct_pr_review_comments]
+active: true
+serdes/meta:
+- id: github
+  model: Database
+- id: marts
+  model: Schema
+- id: fct_pr_review_comments
+  model: Table
+- id: review_comment_id
+  model: Field

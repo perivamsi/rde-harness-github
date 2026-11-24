@@ -1,0 +1,45 @@
+name: stg_issues
+description: "One row per issue, pull requests excluded (key: issue_number). Source: raw.issues where is_pull_request is not true (GitHub lists PRs in its issues endpoint). is_bot = user_type is Bot or the login ends in [bot]."
+entity_id: 0gXH9eKgdHYliTqq9jYha
+creator_id: internal@metabase.com
+collection_id: t0GnxoSsE-cf0_AXAQmOp
+source_database_id: github
+source:
+  type: query
+  query:
+    lib/type: mbql/query
+    database: github
+    stages:
+    - lib/type: mbql.stage/native
+      native: |-
+        -- One row per issue (key: issue_number). Source: raw.issues, pull requests removed.
+        -- A null is_pull_request counts as an issue.
+        SELECT
+          i.number AS issue_number,
+          i.id AS issue_id,
+          i.title,
+          i.state,
+          i.state_reason,
+          i.user_login AS author_login,
+          (COALESCE(i.user_type = 'Bot', false) OR COALESCE(i.user_login LIKE '%[bot]', false)) AS is_bot,
+          i.created_at,
+          i.closed_at
+        FROM raw.issues AS i
+        WHERE NOT COALESCE(i.is_pull_request, false)
+      template-tags: {}
+target:
+  database: github
+  type: table
+  schema: staging
+  name: stg_issues
+tags:
+- entity_id: wL3kel4FUokNEFlKcviDY
+  position: 0
+  tag_id: u7v_vjnVSqdJ964l09olT
+  serdes/meta:
+  - id: wL3kel4FUokNEFlKcviDY
+    model: TransformTransformTag
+serdes/meta:
+- id: 0gXH9eKgdHYliTqq9jYha
+  label: stg_issues
+  model: Transform

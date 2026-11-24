@@ -1,0 +1,25 @@
+name: Open issues
+description: Issues opened by people that are open now, pull requests excluded. Issue count measure over the Human issues and Open issues segments; no date window.
+entity_id: rJSxMVa3cEmxKnL-voB4Z
+creator_id: internal@metabase.com
+display: scalar
+collection_id: qmh6DSz4edO1bX0emX0I2
+dashboard_id: IJZULXcC5GO4JCVIVDrWk
+dataset_query:
+  lib/type: mbql/query
+  database: github
+  stages:
+  - lib/type: mbql.stage/mbql
+    source-table: [github, marts, fct_issues]
+    aggregation:
+    - [measure, {}, m6Q8AdPaYiB2e8U6wYIPc]
+    filters:
+    - [segment, {}, MSqG-Npw4pkof1phUikqz]
+    - [segment, {}, 7-_9AuqfJH-zHkgOl-J_E]
+parameters: []
+parameter_mappings: []
+visualization_settings: {}
+serdes/meta:
+- id: rJSxMVa3cEmxKnL-voB4Z
+  label: open_issues
+  model: Card

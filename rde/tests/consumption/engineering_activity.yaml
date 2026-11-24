@@ -1,0 +1,226 @@
+tests:
+  - id: ca-prs-opened
+    name: PRs opened resolves to PR count and returns data
+    targets:
+      - card:engineering_activity/prs_opened
+    invariant: false
+    group: engineering_activity
+    layer: consumption
+    plan: engineering-activity-dashboard
+    outcomeIds:
+      - eng-activity
+    kind: consumption
+    expectation:
+      element: PRs opened
+      resolvesTo: measure:pr_count
+      returnsData: true
+  - id: ca-prs-merged
+    name: PRs merged resolves to PR count and returns data
+    targets:
+      - card:engineering_activity/prs_merged
+    invariant: false
+    group: engineering_activity
+    layer: consumption
+    plan: engineering-activity-dashboard
+    outcomeIds:
+      - eng-activity
+    kind: consumption
+    expectation:
+      element: PRs merged
+      resolvesTo: measure:pr_count
+      returnsData: true
+  - id: ca-open-prs
+    name: Open PRs resolves to PR count and returns data
+    targets:
+      - card:engineering_activity/open_prs
+    invariant: false
+    group: engineering_activity
+    layer: consumption
+    plan: engineering-activity-dashboard
+    outcomeIds:
+      - eng-activity
+    kind: consumption
+    expectation:
+      element: Open PRs
+      resolvesTo: measure:pr_count
+      returnsData: true
+  - id: ca-median-hours-to-merge
+    name: Median hours to merge card resolves to its measure and returns data
+    targets:
+      - card:engineering_activity/median_hours_to_merge
+    invariant: false
+    group: engineering_activity
+    layer: consumption
+    plan: engineering-activity-dashboard
+    outcomeIds:
+      - eng-activity
+    kind: consumption
+    expectation:
+      element: Median hours to merge
+      resolvesTo: measure:median_hours_to_merge
+      returnsData: true
+  - id: ca-prs-opened-per-week
+    name: PRs opened per week resolves to PR count and returns data
+    targets:
+      - card:engineering_activity/prs_opened_per_week
+    invariant: false
+    group: engineering_activity
+    layer: consumption
+    plan: engineering-activity-dashboard
+    outcomeIds:
+      - eng-activity
+    kind: consumption
+    expectation:
+      element: PRs opened per week
+      resolvesTo: measure:pr_count
+      returnsData: true
+  - id: ca-prs-merged-per-week
+    name: PRs merged per week resolves to PR count and returns data
+    targets:
+      - card:engineering_activity/prs_merged_per_week
+    invariant: false
+    group: engineering_activity
+    layer: consumption
+    plan: engineering-activity-dashboard
+    outcomeIds:
+      - eng-activity
+    kind: consumption
+    expectation:
+      element: PRs merged per week
+      resolvesTo: measure:pr_count
+      returnsData: true
+  - id: ca-commits-per-week
+    name: Commits per week resolves to Commit count and returns data
+    targets:
+      - card:engineering_activity/commits_per_week
+    invariant: false
+    group: engineering_activity
+    layer: consumption
+    plan: engineering-activity-dashboard
+    outcomeIds:
+      - eng-activity
+    kind: consumption
+    expectation:
+      element: Commits per week
+      resolvesTo: measure:commit_count
+      returnsData: true
+  - id: ca-active-committers-per-week
+    name: Active committers per week resolves to Active committers and returns data
+    targets:
+      - card:engineering_activity/active_committers_per_week
+    invariant: false
+    group: engineering_activity
+    layer: consumption
+    plan: engineering-activity-dashboard
+    outcomeIds:
+      - eng-activity
+    kind: consumption
+    expectation:
+      element: Active committers per week
+      resolvesTo: measure:active_committers
+      returnsData: true
+  - id: ca-top-committers
+    name: Top committers resolves to Commit count and returns data
+    targets:
+      - card:engineering_activity/top_committers
+    invariant: false
+    group: engineering_activity
+    layer: consumption
+    plan: engineering-activity-dashboard
+    outcomeIds:
+      - eng-activity
+    kind: consumption
+    expectation:
+      element: Top committers
+      resolvesTo: measure:commit_count
+      returnsData: true
+  - id: ca-review-comments-per-week
+    name: Review comments per week resolves to Review comment count and returns data
+    targets:
+      - card:engineering_activity/review_comments_per_week
+    invariant: false
+    group: engineering_activity
+    layer: consumption
+    plan: engineering-activity-dashboard
+    outcomeIds:
+      - eng-activity
+    kind: consumption
+    expectation:
+      element: Review comments per week
+      resolvesTo: measure:review_comment_count
+      returnsData: true
+  - id: ca-reviewed-prs-per-week
+    name: Reviewed PRs per week resolves to Reviewed PRs and returns data
+    targets:
+      - card:engineering_activity/reviewed_prs_per_week
+    invariant: false
+    group: engineering_activity
+    layer: consumption
+    plan: engineering-activity-dashboard
+    outcomeIds:
+      - eng-activity
+    kind: consumption
+    expectation:
+      element: Reviewed PRs per week
+      resolvesTo: measure:reviewed_prs
+      returnsData: true
+  - id: ca-top-reviewers
+    name: Top reviewers resolves to Review comment count and returns data
+    targets:
+      - card:engineering_activity/top_reviewers
+    invariant: false
+    group: engineering_activity
+    layer: consumption
+    plan: engineering-activity-dashboard
+    outcomeIds:
+      - eng-activity
+    kind: consumption
+    expectation:
+      element: Top reviewers
+      resolvesTo: measure:review_comment_count
+      returnsData: true
+  - id: ca-issues-opened-per-week
+    name: Issues opened per week resolves to Issue count and returns data
+    targets:
+      - card:engineering_activity/issues_opened_per_week
+    invariant: false
+    group: engineering_activity
+    layer: consumption
+    plan: engineering-activity-dashboard
+    outcomeIds:
+      - eng-activity
+    kind: consumption
+    expectation:
+      element: Issues opened per week
+      resolvesTo: measure:issue_count
+      returnsData: true
+  - id: ca-issues-closed-per-week
+    name: Issues closed per week resolves to Issue count and returns data
+    targets:
+      - card:engineering_activity/issues_closed_per_week
+    invariant: false
+    group: engineering_activity
+    layer: consumption
+    plan: engineering-activity-dashboard
+    outcomeIds:
+      - eng-activity
+    kind: consumption
+    expectation:
+      element: Issues closed per week
+      resolvesTo: measure:issue_count
+      returnsData: true
+  - id: ca-open-issues
+    name: Open issues resolves to Issue count and returns data
+    targets:
+      - card:engineering_activity/open_issues
+    invariant: false
+    group: engineering_activity
+    layer: consumption
+    plan: engineering-activity-dashboard
+    outcomeIds:
+      - eng-activity
+    kind: consumption
+    expectation:
+      element: Open issues
+      resolvesTo: measure:issue_count
+      returnsData: true

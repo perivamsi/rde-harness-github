@@ -1,0 +1,16 @@
+name: Active committers
+description: Draft. Number of distinct commit author logins. Commits without a GitHub login are not counted as a committer.
+entity_id: 4SJ866LXU8wwaiPl4Cz5w
+creator_id: internal@metabase.com
+definition:
+  lib/type: mbql/query
+  database: github
+  stages:
+  - lib/type: mbql.stage/mbql
+    source-table: [github, marts, fct_commits]
+    aggregation:
+    - [distinct, {}, [field, {}, [github, marts, fct_commits, author_login]]]
+serdes/meta:
+- id: 4SJ866LXU8wwaiPl4Cz5w
+  label: active_committers
+  model: Measure

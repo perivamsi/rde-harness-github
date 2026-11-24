@@ -1,0 +1,28 @@
+name: Reviewed PRs per week
+description: Distinct pull requests that got a review comment from a person, and distinct people who left one, per week (by comment created_at), previous 90 days. Reviewed PRs and Active reviewers measures over the Human review comments segment.
+entity_id: VNJhFmdtDE8l1BmLev4Xa
+creator_id: internal@metabase.com
+display: line
+collection_id: qmh6DSz4edO1bX0emX0I2
+dashboard_id: IJZULXcC5GO4JCVIVDrWk
+dataset_query:
+  lib/type: mbql/query
+  database: github
+  stages:
+  - lib/type: mbql.stage/mbql
+    source-table: [github, marts, fct_pr_review_comments]
+    aggregation:
+    - [measure, {}, bLHLvEqxF7loC01e-Nlel]
+    - [measure, {}, HpS2yH0TZYkS35fsoyYg_]
+    filters:
+    - [segment, {}, LPl5f1_gu3k3nlIRvXpTB]
+    - [time-interval, {}, [field, {}, [github, marts, fct_pr_review_comments, created_at]], -90, day]
+    breakout:
+    - [field, {temporal-unit: week}, [github, marts, fct_pr_review_comments, created_at]]
+parameters: []
+parameter_mappings: []
+visualization_settings: {}
+serdes/meta:
+- id: VNJhFmdtDE8l1BmLev4Xa
+  label: reviewed_prs_per_week
+  model: Card

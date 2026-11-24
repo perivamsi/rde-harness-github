@@ -1,0 +1,131 @@
+tests:
+  - id: sa-human-pr-count
+    name: PR count over Human PRs equals the probed 13,800
+    description: 14,031 PRs minus 231 bot PRs, probed on marts.fct_pull_requests at dce2ee5.
+    targets:
+      - measure:pr_count
+    invariant: false
+    group: github_activity
+    layer: semantic
+    plan: engineering-activity-dashboard
+    outcomeIds:
+      - eng-activity
+    kind: semantic
+    expectation:
+      value: 13800
+      tolerance:
+        kind: absolute
+        amount: 0
+      segment: segment:human_prs
+  - id: sa-human-commit-count
+    name: Commit count over Human commits equals the probed 2,340
+    description: 2,445 commits minus 105 bot commits, probed on marts.fct_commits at dce2ee5.
+    targets:
+      - measure:commit_count
+    invariant: false
+    group: github_activity
+    layer: semantic
+    plan: engineering-activity-dashboard
+    outcomeIds:
+      - eng-activity
+    kind: semantic
+    expectation:
+      value: 2340
+      tolerance:
+        kind: absolute
+        amount: 0
+      segment: segment:human_commits
+  - id: sa-human-review-comment-count
+    name: Review comment count over Human review comments equals the probed 8,792
+    description: 9,023 comments minus 231 bot comments, probed on marts.fct_pr_review_comments at dce2ee5.
+    targets:
+      - measure:review_comment_count
+    invariant: false
+    group: github_activity
+    layer: semantic
+    plan: engineering-activity-dashboard
+    outcomeIds:
+      - eng-activity
+    kind: semantic
+    expectation:
+      value: 8792
+      tolerance:
+        kind: absolute
+        amount: 0
+      segment: segment:human_review_comments
+  - id: sa-human-issue-count
+    name: Issue count over Human issues equals the probed 1,813
+    description: 1,938 issues minus 125 bot issues, probed on marts.fct_issues at dce2ee5.
+    targets:
+      - measure:issue_count
+    invariant: false
+    group: github_activity
+    layer: semantic
+    plan: engineering-activity-dashboard
+    outcomeIds:
+      - eng-activity
+    kind: semantic
+    expectation:
+      value: 1813
+      tolerance:
+        kind: absolute
+        amount: 0
+      segment: segment:human_issues
+  - id: sa-human-open-prs
+    name: PR count over Human PRs and Open PRs equals the probed 582
+    description: Probed on marts.fct_pull_requests at dce2ee5; moves when the extract refreshes.
+    targets:
+      - measure:pr_count
+    invariant: false
+    group: github_activity
+    layer: semantic
+    plan: engineering-activity-dashboard
+    outcomeIds:
+      - eng-activity
+    kind: semantic
+    expectation:
+      value: 582
+      tolerance:
+        kind: absolute
+        amount: 0
+      segments:
+        - segment:human_prs
+        - segment:open_prs
+  - id: sa-human-median-hours-to-merge
+    name: Median hours to merge over human merged PRs equals the probed 26.44
+    description: All-time median over Human PRs and Merged PRs, probed with percentile_cont(0.5) on marts.fct_pull_requests at dce2ee5; tolerance allows for the engine's median method.
+    targets:
+      - measure:median_hours_to_merge
+    invariant: false
+    group: github_activity
+    layer: semantic
+    plan: engineering-activity-dashboard
+    outcomeIds:
+      - eng-activity
+    kind: semantic
+    expectation:
+      value: 26.44
+      tolerance:
+        kind: relative
+        amount: 0.02
+      segments:
+        - segment:human_prs
+        - segment:merged_prs
+  - id: sa-human-reviewed-prs
+    name: Reviewed PRs over Human review comments equals the probed 1,247
+    description: 1,247 distinct PRs with a human review comment, probed on marts.fct_pr_review_comments at dce2ee5.
+    targets:
+      - measure:reviewed_prs
+    invariant: false
+    group: github_activity
+    layer: semantic
+    plan: engineering-activity-dashboard
+    outcomeIds:
+      - eng-activity
+    kind: semantic
+    expectation:
+      value: 1247
+      tolerance:
+        kind: absolute
+        amount: 0
+      segment: segment:human_review_comments

@@ -1,0 +1,48 @@
+name: fct_pull_requests
+description: "One row per pull request (key: pull_request_number). Source: staging.stg_pull_requests. is_open = state is open; hours_to_merge = hours from created_at to merged_at, 2 decimals, null when not merged. is_bot marks bot authors."
+entity_id: Fnih4I2cae5VGQ2kqWlg9
+creator_id: internal@metabase.com
+collection_id: ffz_FZbOsKbe2SrOlgTvL
+source_database_id: github
+source:
+  type: query
+  query:
+    lib/type: mbql/query
+    database: github
+    stages:
+    - lib/type: mbql.stage/native
+      native: |-
+        -- One row per pull request (key: pull_request_number). Source: staging.stg_pull_requests.
+        -- hours_to_merge: (merged_at - created_at) in hours, null when not merged.
+        SELECT
+          p.pull_request_number,
+          p.title,
+          p.state,
+          (p.state = 'open') AS is_open,
+          p.is_draft,
+          p.author_login,
+          p.is_bot,
+          p.base_ref,
+          p.created_at,
+          p.closed_at,
+          p.merged_at,
+          p.is_merged,
+          CAST(EXTRACT(EPOCH FROM (p.merged_at - p.created_at)) / 3600.0 AS numeric(12,2)) AS hours_to_merge
+        FROM staging.stg_pull_requests AS p
+      template-tags: {}
+target:
+  database: github
+  type: table
+  schema: marts
+  name: fct_pull_requests
+tags:
+- entity_id: dKKkegQoDDetOsFyfy0Mk
+  position: 0
+  tag_id: u7v_vjnVSqdJ964l09olT
+  serdes/meta:
+  - id: dKKkegQoDDetOsFyfy0Mk
+    model: TransformTransformTag
+serdes/meta:
+- id: Fnih4I2cae5VGQ2kqWlg9
+  label: fct_pull_requests
+  model: Transform

@@ -1,0 +1,16 @@
+name: Human PRs
+description: Pull requests opened by people. Excludes bot accounts (GitHub user type Bot or a login ending in [bot]), 231 PRs when written.
+entity_id: sesF5j1N8ubEbM9xIqcAk
+creator_id: internal@metabase.com
+definition:
+  lib/type: mbql/query
+  database: github
+  stages:
+  - lib/type: mbql.stage/mbql
+    source-table: [github, marts, fct_pull_requests]
+    filters:
+    - [=, {}, [field, {}, [github, marts, fct_pull_requests, is_bot]], false]
+serdes/meta:
+- id: sesF5j1N8ubEbM9xIqcAk
+  label: human_prs
+  model: Segment

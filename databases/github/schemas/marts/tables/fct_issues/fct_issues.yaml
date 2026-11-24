@@ -1,0 +1,22 @@
+name: fct_issues
+display_name: Issues
+description: "Draft. One row per GitHub issue, pull requests excluded (key: issue_number). hours_to_close is hours from opening to closing, null when open. is_bot marks issues opened by bot accounts (GitHub user type Bot or a login ending in [bot]); use the Human issues segment to count people only."
+db_id: github
+schema: marts
+active: true
+visibility_type: null
+field_order: database
+initial_sync_status: complete
+is_published: true
+collection_id: librarylibrarydatadat
+data_layer: final
+data_source: metabase-transform
+data_authority: computed
+transform_id: ZbE7Gzg94tf4Bg6hV_wT8
+serdes/meta:
+- id: github
+  model: Database
+- id: marts
+  model: Schema
+- id: fct_issues
+  model: Table

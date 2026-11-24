@@ -1,0 +1,41 @@
+name: stg_commits
+description: "One row per commit (key: commit_sha). Source: raw.commits. authored_at is the author date; is_bot = author login ends in [bot] (commits carry no user type). Caveats: the extract covers Aug 2026 onwards."
+entity_id: Zz-wIF4hMwB7gxWLB6Xo3
+creator_id: internal@metabase.com
+collection_id: t0GnxoSsE-cf0_AXAQmOp
+source_database_id: github
+source:
+  type: query
+  query:
+    lib/type: mbql/query
+    database: github
+    stages:
+    - lib/type: mbql.stage/native
+      native: |-
+        -- One row per commit (key: commit_sha). Source: raw.commits.
+        -- is_bot: author login ends in '[bot]'; a null login counts as not bot.
+        SELECT
+          c.sha AS commit_sha,
+          c.author_login,
+          c.committer_login,
+          c.author_date AS authored_at,
+          c.verified AS is_verified,
+          COALESCE(c.author_login LIKE '%[bot]', false) AS is_bot
+        FROM raw.commits AS c
+      template-tags: {}
+target:
+  database: github
+  type: table
+  schema: staging
+  name: stg_commits
+tags:
+- entity_id: Vgh_XEwoRn4mL6HjA9C2i
+  position: 0
+  tag_id: u7v_vjnVSqdJ964l09olT
+  serdes/meta:
+  - id: Vgh_XEwoRn4mL6HjA9C2i
+    model: TransformTransformTag
+serdes/meta:
+- id: Zz-wIF4hMwB7gxWLB6Xo3
+  label: stg_commits
+  model: Transform

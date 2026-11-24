@@ -1,0 +1,16 @@
+name: Human issues
+description: Issues opened by people. Excludes bot accounts (GitHub user type Bot or a login ending in [bot]), 125 issues when written.
+entity_id: MSqG-Npw4pkof1phUikqz
+creator_id: internal@metabase.com
+definition:
+  lib/type: mbql/query
+  database: github
+  stages:
+  - lib/type: mbql.stage/mbql
+    source-table: [github, marts, fct_issues]
+    filters:
+    - [=, {}, [field, {}, [github, marts, fct_issues, is_bot]], false]
+serdes/meta:
+- id: MSqG-Npw4pkof1phUikqz
+  label: human_issues
+  model: Segment

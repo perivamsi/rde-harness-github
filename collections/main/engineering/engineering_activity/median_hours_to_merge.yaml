@@ -1,0 +1,26 @@
+name: Median hours to merge
+description: Median hours from opening to merge for pull requests by people merged in the previous 90 days (by merged_at). Median hours to merge measure over the Human PRs and Merged PRs segments.
+entity_id: 6xPQ9YCcuSL5Y7uB6kkG3
+creator_id: internal@metabase.com
+display: scalar
+collection_id: qmh6DSz4edO1bX0emX0I2
+dashboard_id: IJZULXcC5GO4JCVIVDrWk
+dataset_query:
+  lib/type: mbql/query
+  database: github
+  stages:
+  - lib/type: mbql.stage/mbql
+    source-table: [github, marts, fct_pull_requests]
+    aggregation:
+    - [measure, {}, SvXEflvFokq41cKlgerl8]
+    filters:
+    - [segment, {}, sesF5j1N8ubEbM9xIqcAk]
+    - [segment, {}, FflmgOGdpvxaGpmtBJLC7]
+    - [time-interval, {}, [field, {}, [github, marts, fct_pull_requests, merged_at]], -90, day]
+parameters: []
+parameter_mappings: []
+visualization_settings: {}
+serdes/meta:
+- id: 6xPQ9YCcuSL5Y7uB6kkG3
+  label: median_hours_to_merge
+  model: Card

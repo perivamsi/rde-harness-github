@@ -1,0 +1,22 @@
+name: fct_commits
+display_name: Commits
+description: "Draft. One row per commit (key: commit_sha), by author date (authored_at). is_bot marks commits whose author login ends in [bot]; use the Human commits segment to count people only. The extract starts Aug 2026."
+db_id: github
+schema: marts
+active: true
+visibility_type: null
+field_order: database
+initial_sync_status: complete
+is_published: true
+collection_id: librarylibrarydatadat
+data_layer: final
+data_source: metabase-transform
+data_authority: computed
+transform_id: oSEIE3minlTUH4-kxVsnI
+serdes/meta:
+- id: github
+  model: Database
+- id: marts
+  model: Schema
+- id: fct_commits
+  model: Table

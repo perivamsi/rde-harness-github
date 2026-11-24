@@ -1,0 +1,16 @@
+name: Open issues
+description: Issues whose state is open at the last extract.
+entity_id: 7-_9AuqfJH-zHkgOl-J_E
+creator_id: internal@metabase.com
+definition:
+  lib/type: mbql/query
+  database: github
+  stages:
+  - lib/type: mbql.stage/mbql
+    source-table: [github, marts, fct_issues]
+    filters:
+    - [=, {}, [field, {}, [github, marts, fct_issues, is_open]], true]
+serdes/meta:
+- id: 7-_9AuqfJH-zHkgOl-J_E
+  label: open_issues
+  model: Segment

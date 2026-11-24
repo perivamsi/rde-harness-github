@@ -1,0 +1,16 @@
+name: Active reviewers
+description: Draft. Number of distinct logins that left a review comment.
+entity_id: HpS2yH0TZYkS35fsoyYg_
+creator_id: internal@metabase.com
+definition:
+  lib/type: mbql/query
+  database: github
+  stages:
+  - lib/type: mbql.stage/mbql
+    source-table: [github, marts, fct_pr_review_comments]
+    aggregation:
+    - [distinct, {}, [field, {}, [github, marts, fct_pr_review_comments, reviewer_login]]]
+serdes/meta:
+- id: HpS2yH0TZYkS35fsoyYg_
+  label: active_reviewers
+  model: Measure

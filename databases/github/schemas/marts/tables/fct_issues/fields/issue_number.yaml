@@ -1,0 +1,16 @@
+name: issue_number
+description: The issue's number in the repository.
+base_type: type/Integer
+database_type: int4
+semantic_type: type/PK
+table_id: [github, marts, fct_issues]
+active: true
+serdes/meta:
+- id: github
+  model: Database
+- id: marts
+  model: Schema
+- id: fct_issues
+  model: Table
+- id: issue_number
+  model: Field

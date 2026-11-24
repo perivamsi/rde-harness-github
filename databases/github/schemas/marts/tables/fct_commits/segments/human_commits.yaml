@@ -1,0 +1,16 @@
+name: Human commits
+description: Commits authored by people. Excludes authors whose login ends in [bot], 105 commits when written.
+entity_id: m0f-m9_mxNULXd9OY8Z0p
+creator_id: internal@metabase.com
+definition:
+  lib/type: mbql/query
+  database: github
+  stages:
+  - lib/type: mbql.stage/mbql
+    source-table: [github, marts, fct_commits]
+    filters:
+    - [=, {}, [field, {}, [github, marts, fct_commits, is_bot]], false]
+serdes/meta:
+- id: m0f-m9_mxNULXd9OY8Z0p
+  label: human_commits
+  model: Segment

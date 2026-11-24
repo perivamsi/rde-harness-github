@@ -1,0 +1,16 @@
+name: Commit count
+description: Draft. Number of commits. Counts bots too; apply the Human commits segment to count people only. Data starts Aug 2026.
+entity_id: 72coMvmRlkFxVNZYmtKm3
+creator_id: internal@metabase.com
+definition:
+  lib/type: mbql/query
+  database: github
+  stages:
+  - lib/type: mbql.stage/mbql
+    source-table: [github, marts, fct_commits]
+    aggregation:
+    - [count, {}]
+serdes/meta:
+- id: 72coMvmRlkFxVNZYmtKm3
+  label: commit_count
+  model: Measure

@@ -1,0 +1,9 @@
+name: Staging
+description: Cleaned, renamed copies of the raw GitHub tables, one transform per source table.
+entity_id: t0GnxoSsE-cf0_AXAQmOp
+slug: staging
+namespace: transforms
+serdes/meta:
+- id: t0GnxoSsE-cf0_AXAQmOp
+  label: staging
+  model: Collection

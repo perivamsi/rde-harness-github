@@ -1,0 +1,27 @@
+name: Review comments per week
+description: Pull request review comments left by people per week (by created_at), previous 90 days, replies included. Review comment count measure over the Human review comments segment. Review data starts Aug 2026.
+entity_id: dnuIeVoRwV9OXG_FVVGRh
+creator_id: internal@metabase.com
+display: bar
+collection_id: qmh6DSz4edO1bX0emX0I2
+dashboard_id: IJZULXcC5GO4JCVIVDrWk
+dataset_query:
+  lib/type: mbql/query
+  database: github
+  stages:
+  - lib/type: mbql.stage/mbql
+    source-table: [github, marts, fct_pr_review_comments]
+    aggregation:
+    - [measure, {}, j2HwyE0ysYvdHUq59Abd6]
+    filters:
+    - [segment, {}, LPl5f1_gu3k3nlIRvXpTB]
+    - [time-interval, {}, [field, {}, [github, marts, fct_pr_review_comments, created_at]], -90, day]
+    breakout:
+    - [field, {temporal-unit: week}, [github, marts, fct_pr_review_comments, created_at]]
+parameters: []
+parameter_mappings: []
+visualization_settings: {}
+serdes/meta:
+- id: dnuIeVoRwV9OXG_FVVGRh
+  label: review_comments_per_week
+  model: Card

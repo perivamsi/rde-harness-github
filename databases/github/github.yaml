@@ -1,0 +1,5 @@
+name: github
+engine: postgres
+serdes/meta:
+- id: github
+  model: Database
