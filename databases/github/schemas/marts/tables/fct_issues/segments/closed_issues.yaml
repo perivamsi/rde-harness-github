@@ -1,0 +1,16 @@
+name: Closed issues
+description: Issues that have a closed date, whether completed or closed as not planned.
+entity_id: P4YqncL3exyFDewXYvIlP
+creator_id: internal@metabase.com
+definition:
+  lib/type: mbql/query
+  database: github
+  stages:
+  - lib/type: mbql.stage/mbql
+    source-table: [github, marts, fct_issues]
+    filters:
+    - [not-null, {}, [field, {}, [github, marts, fct_issues, closed_at]]]
+serdes/meta:
+- id: P4YqncL3exyFDewXYvIlP
+  label: closed_issues
+  model: Segment

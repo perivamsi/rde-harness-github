@@ -1,0 +1,16 @@
+name: Review comment count
+description: Draft. Number of pull request review comments, replies included. Counts bots too; apply the Human review comments segment to count people only. Data starts Aug 2026.
+entity_id: j2HwyE0ysYvdHUq59Abd6
+creator_id: internal@metabase.com
+definition:
+  lib/type: mbql/query
+  database: github
+  stages:
+  - lib/type: mbql.stage/mbql
+    source-table: [github, marts, fct_pr_review_comments]
+    aggregation:
+    - [count, {}]
+serdes/meta:
+- id: j2HwyE0ysYvdHUq59Abd6
+  label: review_comment_count
+  model: Measure

@@ -1,0 +1,16 @@
+name: Merged PRs
+description: Pull requests that were merged (merged_at is set). Closed-without-merge PRs are excluded.
+entity_id: FflmgOGdpvxaGpmtBJLC7
+creator_id: internal@metabase.com
+definition:
+  lib/type: mbql/query
+  database: github
+  stages:
+  - lib/type: mbql.stage/mbql
+    source-table: [github, marts, fct_pull_requests]
+    filters:
+    - [=, {}, [field, {}, [github, marts, fct_pull_requests, is_merged]], true]
+serdes/meta:
+- id: FflmgOGdpvxaGpmtBJLC7
+  label: merged_prs
+  model: Segment

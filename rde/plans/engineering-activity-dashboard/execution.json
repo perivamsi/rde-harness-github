@@ -42,11 +42,21 @@
     {
       "id": "t-semantic-publish",
       "status": "done",
-      "completedAt": "2026-11-24T17:27:27.191Z"
+      "completedAt": "2026-11-24T17:27:27.191Z",
+      "commit": "dce2ee5",
+      "runId": "2026-11-24T1727Z-only-dirty",
+      "apply": {
+        "env": "github",
+        "commit": "dce2ee5046fb0495f8f3124742890d33a342c568",
+        "at": "2026-11-24T17:27:27.498Z",
+        "status": "applied",
+        "transforms": []
+      }
     },
     {
       "id": "t-semantic-measures",
-      "status": "pending"
+      "status": "done",
+      "completedAt": "2026-11-24T17:28:50.294Z"
     },
     {
       "id": "t-consumption-dashboard",

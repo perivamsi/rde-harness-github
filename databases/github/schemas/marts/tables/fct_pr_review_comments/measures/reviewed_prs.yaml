@@ -1,0 +1,16 @@
+name: Reviewed PRs
+description: Draft. Number of distinct pull requests that received at least one review comment. Reviews approved without a line comment are not in this data and are not counted.
+entity_id: bLHLvEqxF7loC01e-Nlel
+creator_id: internal@metabase.com
+definition:
+  lib/type: mbql/query
+  database: github
+  stages:
+  - lib/type: mbql.stage/mbql
+    source-table: [github, marts, fct_pr_review_comments]
+    aggregation:
+    - [distinct, {}, [field, {}, [github, marts, fct_pr_review_comments, pull_request_number]]]
+serdes/meta:
+- id: bLHLvEqxF7loC01e-Nlel
+  label: reviewed_prs
+  model: Measure

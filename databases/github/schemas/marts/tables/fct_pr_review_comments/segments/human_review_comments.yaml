@@ -1,0 +1,16 @@
+name: Human review comments
+description: Review comments left by people. Excludes bot accounts (GitHub user type Bot or a login ending in [bot]), 231 comments when written.
+entity_id: LPl5f1_gu3k3nlIRvXpTB
+creator_id: internal@metabase.com
+definition:
+  lib/type: mbql/query
+  database: github
+  stages:
+  - lib/type: mbql.stage/mbql
+    source-table: [github, marts, fct_pr_review_comments]
+    filters:
+    - [=, {}, [field, {}, [github, marts, fct_pr_review_comments, is_bot]], false]
+serdes/meta:
+- id: LPl5f1_gu3k3nlIRvXpTB
+  label: human_review_comments
+  model: Segment

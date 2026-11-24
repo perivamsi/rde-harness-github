@@ -11,6 +11,9 @@
     },
     "t-semantic-publish": {
       "startedAt": "2026-11-24T17:26:56.681Z"
+    },
+    "t-semantic-measures": {
+      "startedAt": "2026-11-24T17:27:37.176Z"
     }
   },
   "runs": [
@@ -113,6 +116,19 @@
       "deferred": [],
       "failing": [],
       "waived": []
+    },
+    {
+      "runId": "2026-11-24T1727Z-only-dirty",
+      "mode": "only-dirty",
+      "at": "2026-11-24T17:27:31.528Z",
+      "trigger": "complete-task",
+      "taskId": "t-semantic-publish",
+      "status": "skipped",
+      "dirty": [],
+      "ran": [],
+      "deferred": [],
+      "failing": [],
+      "waived": []
     }
   ],
   "overrides": [],
@@ -204,6 +220,59 @@
           "id": "transform:fct_issues",
           "name": "fct_issues",
           "status": "succeeded"
+        }
+      ],
+      "drift": []
+    },
+    {
+      "id": "op-5f647f7b-f5ab-482e-bfec-7fb88a4e5e89",
+      "at": "2026-11-24T17:27:27.498Z",
+      "env": "github",
+      "commit": "dce2ee5046fb0495f8f3124742890d33a342c568",
+      "trigger": "complete-task",
+      "taskId": "t-semantic-publish",
+      "scope": [],
+      "status": "applied",
+      "transforms": [
+        {
+          "id": "transform:stg_commits",
+          "name": "stg_commits",
+          "status": "not-run"
+        },
+        {
+          "id": "transform:stg_issues",
+          "name": "stg_issues",
+          "status": "not-run"
+        },
+        {
+          "id": "transform:stg_pr_review_comments",
+          "name": "stg_pr_review_comments",
+          "status": "not-run"
+        },
+        {
+          "id": "transform:stg_pull_requests",
+          "name": "stg_pull_requests",
+          "status": "not-run"
+        },
+        {
+          "id": "transform:fct_pr_review_comments",
+          "name": "fct_pr_review_comments",
+          "status": "not-run"
+        },
+        {
+          "id": "transform:fct_commits",
+          "name": "fct_commits",
+          "status": "not-run"
+        },
+        {
+          "id": "transform:fct_pull_requests",
+          "name": "fct_pull_requests",
+          "status": "not-run"
+        },
+        {
+          "id": "transform:fct_issues",
+          "name": "fct_issues",
+          "status": "not-run"
         }
       ],
       "drift": []

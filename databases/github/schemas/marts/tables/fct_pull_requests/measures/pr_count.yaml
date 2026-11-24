@@ -1,0 +1,16 @@
+name: PR count
+description: Draft. Number of pull requests. Counts bots too; apply the Human PRs segment to count people only.
+entity_id: l9dkwscMe9YCxa6YTa0y-
+creator_id: internal@metabase.com
+definition:
+  lib/type: mbql/query
+  database: github
+  stages:
+  - lib/type: mbql.stage/mbql
+    source-table: [github, marts, fct_pull_requests]
+    aggregation:
+    - [count, {}]
+serdes/meta:
+- id: l9dkwscMe9YCxa6YTa0y-
+  label: pr_count
+  model: Measure

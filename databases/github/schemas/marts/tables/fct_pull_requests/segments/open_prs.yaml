@@ -1,0 +1,16 @@
+name: Open PRs
+description: Pull requests whose state is open at the last extract, drafts included.
+entity_id: S17oJQups_y_hyjB_rJkR
+creator_id: internal@metabase.com
+definition:
+  lib/type: mbql/query
+  database: github
+  stages:
+  - lib/type: mbql.stage/mbql
+    source-table: [github, marts, fct_pull_requests]
+    filters:
+    - [=, {}, [field, {}, [github, marts, fct_pull_requests, is_open]], true]
+serdes/meta:
+- id: S17oJQups_y_hyjB_rJkR
+  label: open_prs
+  model: Segment

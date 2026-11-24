@@ -1,0 +1,16 @@
+name: Issue count
+description: Draft. Number of issues, pull requests excluded. Counts bots too; apply the Human issues segment to count people only.
+entity_id: m6Q8AdPaYiB2e8U6wYIPc
+creator_id: internal@metabase.com
+definition:
+  lib/type: mbql/query
+  database: github
+  stages:
+  - lib/type: mbql.stage/mbql
+    source-table: [github, marts, fct_issues]
+    aggregation:
+    - [count, {}]
+serdes/meta:
+- id: m6Q8AdPaYiB2e8U6wYIPc
+  label: issue_count
+  model: Measure

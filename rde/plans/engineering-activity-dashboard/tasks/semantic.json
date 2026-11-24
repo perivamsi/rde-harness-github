@@ -30,12 +30,15 @@
         "sa-human-pr-count",
         "sa-human-commit-count",
         "sa-human-review-comment-count",
-        "sa-human-issue-count"
+        "sa-human-issue-count",
+        "sa-human-open-prs",
+        "sa-human-median-hours-to-merge",
+        "sa-human-reviewed-prs"
       ],
       "dependsOn": [
         "t-semantic-publish"
       ],
-      "status": "pending"
+      "status": "done"
     }
   ]
 }
