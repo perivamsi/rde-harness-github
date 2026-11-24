@@ -1,0 +1,37 @@
+{
+  "plan": "engineering-activity-dashboard",
+  "layer": "consumption",
+  "tasks": [
+    {
+      "id": "t-consumption-dashboard",
+      "layer": "consumption",
+      "outcomeId": "eng-activity",
+      "changeIds": [
+        "c05"
+      ],
+      "guidesExcerpt": "",
+      "instructions": "Write the Engineering collection, the Engineering activity dashboard and its 15 cards in its folder. Every card aggregates a Library measure with its table's Human segment, filters its date column to the previous 90 days with weekly breakouts (backlog scalars have no window), and uses no native SQL. Lay out four sections with headings: Pull request flow, Commits, Code review, Issues. Follow the build-dashboards playbook.",
+      "testIds": [
+        "ca-prs-opened",
+        "ca-prs-merged",
+        "ca-open-prs",
+        "ca-median-hours-to-merge",
+        "ca-prs-opened-per-week",
+        "ca-prs-merged-per-week",
+        "ca-commits-per-week",
+        "ca-active-committers-per-week",
+        "ca-top-committers",
+        "ca-review-comments-per-week",
+        "ca-reviewed-prs-per-week",
+        "ca-top-reviewers",
+        "ca-issues-opened-per-week",
+        "ca-issues-closed-per-week",
+        "ca-open-issues"
+      ],
+      "dependsOn": [
+        "t-semantic-measures"
+      ],
+      "status": "pending"
+    }
+  ]
+}

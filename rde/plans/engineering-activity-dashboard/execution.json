@@ -1,0 +1,26 @@
+{
+  "slug": "engineering-activity-dashboard",
+  "tasks": [
+    {
+      "id": "t-staging-activity",
+      "status": "done",
+      "completedAt": "2026-11-24T17:16:05.433Z"
+    },
+    {
+      "id": "t-marts-activity-facts",
+      "status": "pending"
+    },
+    {
+      "id": "t-semantic-publish",
+      "status": "pending"
+    },
+    {
+      "id": "t-semantic-measures",
+      "status": "pending"
+    },
+    {
+      "id": "t-consumption-dashboard",
+      "status": "pending"
+    }
+  ]
+}

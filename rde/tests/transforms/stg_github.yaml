@@ -1,0 +1,452 @@
+tests:
+  - id: tt-stg-pull-requests
+    name: stg_pull_requests derives is_bot and is_merged
+    description: "Cases: 1 human merged PR; 2 Bot user_type with [bot] login; 3 User type but login ends in [bot]; 4 null user_type and login, never merged (kept, not bot); 5 login containing 'bot' mid-word is human; 6 merged_at null but state closed is not merged."
+    targets:
+      - transform:stg_pull_requests
+    invariant: false
+    group: stg_github
+    layer: staging
+    plan: engineering-activity-dashboard
+    outcomeIds:
+      - eng-activity
+    kind: transform
+    expectation:
+      inputs:
+        table:github.raw.pull_requests:
+          - number: 1
+            id: 101
+            title: a
+            state: closed
+            draft: false
+            user_login: alice
+            user_type: User
+            base_ref: master
+            created_at: 2026-10-01T00:00:00Z
+            closed_at: 2026-10-02T00:00:00Z
+            merged_at: 2026-10-02T00:00:00Z
+          - number: 2
+            id: 102
+            title: b
+            state: open
+            draft: false
+            user_login: dependabot[bot]
+            user_type: Bot
+            base_ref: master
+            created_at: 2026-10-01T00:00:00Z
+            closed_at: null
+            merged_at: null
+          - number: 3
+            id: 103
+            title: c
+            state: open
+            draft: true
+            user_login: renovate[bot]
+            user_type: User
+            base_ref: master
+            created_at: 2026-10-01T00:00:00Z
+            closed_at: null
+            merged_at: null
+          - number: 4
+            id: 104
+            title: d
+            state: open
+            draft: false
+            user_login: null
+            user_type: null
+            base_ref: master
+            created_at: 2026-10-01T00:00:00Z
+            closed_at: null
+            merged_at: null
+          - number: 5
+            id: 105
+            title: e
+            state: open
+            draft: false
+            user_login: botanist
+            user_type: User
+            base_ref: master
+            created_at: 2026-10-01T00:00:00Z
+            closed_at: null
+            merged_at: null
+          - number: 6
+            id: 106
+            title: f
+            state: closed
+            draft: false
+            user_login: carol
+            user_type: User
+            base_ref: master
+            created_at: 2026-10-01T00:00:00Z
+            closed_at: 2026-10-03T00:00:00Z
+            merged_at: null
+      rows:
+        - pull_request_number: 1
+          author_login: alice
+          is_bot: false
+          is_merged: true
+        - pull_request_number: 2
+          author_login: dependabot[bot]
+          is_bot: true
+          is_merged: false
+        - pull_request_number: 3
+          author_login: renovate[bot]
+          is_bot: true
+          is_merged: false
+        - pull_request_number: 4
+          author_login: null
+          is_bot: false
+          is_merged: false
+        - pull_request_number: 5
+          author_login: botanist
+          is_bot: false
+          is_merged: false
+        - pull_request_number: 6
+          author_login: carol
+          is_bot: false
+          is_merged: false
+      ordered: false
+  - id: tt-stg-commits
+    name: stg_commits flags bot authors by login and keeps every commit
+    description: "Cases: 1 human author; 2 github-actions[bot]; 3 null author login (kept, not bot); 4 login with 'bot' not as [bot] suffix is human."
+    targets:
+      - transform:stg_commits
+    invariant: false
+    group: stg_github
+    layer: staging
+    plan: engineering-activity-dashboard
+    outcomeIds:
+      - eng-activity
+    kind: transform
+    expectation:
+      inputs:
+        table:github.raw.commits:
+          - sha: a1
+            author_login: alice
+            committer_login: web-flow
+            author_date: 2026-10-01T00:00:00Z
+            verified: true
+          - sha: a2
+            author_login: github-actions[bot]
+            committer_login: github-actions[bot]
+            author_date: 2026-10-02T00:00:00Z
+            verified: false
+          - sha: a3
+            author_login: null
+            committer_login: null
+            author_date: 2026-10-03T00:00:00Z
+            verified: false
+          - sha: a4
+            author_login: robotron
+            committer_login: robotron
+            author_date: 2026-10-04T00:00:00Z
+            verified: true
+      rows:
+        - commit_sha: a1
+          authored_at: 2026-10-01T00:00:00Z
+          is_bot: false
+        - commit_sha: a2
+          authored_at: 2026-10-02T00:00:00Z
+          is_bot: true
+        - commit_sha: a3
+          authored_at: 2026-10-03T00:00:00Z
+          is_bot: false
+        - commit_sha: a4
+          authored_at: 2026-10-04T00:00:00Z
+          is_bot: false
+      ordered: false
+  - id: tt-stg-pr-review-comments
+    name: stg_pr_review_comments parses the PR number and flags replies and bots
+    description: "Cases: 1 top-level human comment on PR 123; 2 reply on PR 123; 3 bot comment on a five-digit PR 45678; 4 URL without /pulls/ gives a null PR number and the row is kept."
+    targets:
+      - transform:stg_pr_review_comments
+    invariant: false
+    group: stg_github
+    layer: staging
+    plan: engineering-activity-dashboard
+    outcomeIds:
+      - eng-activity
+    kind: transform
+    expectation:
+      inputs:
+        table:github.raw.pull_request_review_comments:
+          - id: 1
+            pull_request_review_id: 11
+            pull_request_url: https://api.github.com/repos/o/r/pulls/123
+            user_login: alice
+            user_type: User
+            in_reply_to_id: null
+            created_at: 2026-10-01T00:00:00Z
+          - id: 2
+            pull_request_review_id: 12
+            pull_request_url: https://api.github.com/repos/o/r/pulls/123
+            user_login: bob
+            user_type: User
+            in_reply_to_id: 1
+            created_at: 2026-10-01T01:00:00Z
+          - id: 3
+            pull_request_review_id: 13
+            pull_request_url: https://api.github.com/repos/o/r/pulls/45678
+            user_login: coderabbit[bot]
+            user_type: Bot
+            in_reply_to_id: null
+            created_at: 2026-10-01T02:00:00Z
+          - id: 4
+            pull_request_review_id: 14
+            pull_request_url: https://api.github.com/repos/o/r/issues/9
+            user_login: carol
+            user_type: User
+            in_reply_to_id: null
+            created_at: 2026-10-01T03:00:00Z
+      rows:
+        - review_comment_id: 1
+          pull_request_number: 123
+          is_reply: false
+          is_bot: false
+        - review_comment_id: 2
+          pull_request_number: 123
+          is_reply: true
+          is_bot: false
+        - review_comment_id: 3
+          pull_request_number: 45678
+          is_reply: false
+          is_bot: true
+        - review_comment_id: 4
+          pull_request_number: null
+          is_reply: false
+          is_bot: false
+      ordered: false
+  - id: tt-stg-issues
+    name: stg_issues drops pull requests and flags bot authors
+    description: "Cases: 1 human issue; 2 a PR row (is_pull_request true) must be dropped; 3 null is_pull_request is kept as an issue; 4 bot-opened issue."
+    targets:
+      - transform:stg_issues
+    invariant: false
+    group: stg_github
+    layer: staging
+    plan: engineering-activity-dashboard
+    outcomeIds:
+      - eng-activity
+    kind: transform
+    expectation:
+      inputs:
+        table:github.raw.issues:
+          - number: 1
+            id: 201
+            title: bug
+            state: open
+            state_reason: null
+            user_login: alice
+            user_type: User
+            is_pull_request: false
+            created_at: 2026-10-01T00:00:00Z
+            closed_at: null
+          - number: 2
+            id: 202
+            title: pr
+            state: closed
+            state_reason: null
+            user_login: bob
+            user_type: User
+            is_pull_request: true
+            created_at: 2026-10-01T00:00:00Z
+            closed_at: 2026-10-02T00:00:00Z
+          - number: 3
+            id: 203
+            title: old
+            state: closed
+            state_reason: completed
+            user_login: carol
+            user_type: User
+            is_pull_request: null
+            created_at: 2026-10-01T00:00:00Z
+            closed_at: 2026-10-05T00:00:00Z
+          - number: 4
+            id: 204
+            title: auto
+            state: open
+            state_reason: null
+            user_login: metabase-bot[bot]
+            user_type: Bot
+            is_pull_request: false
+            created_at: 2026-10-01T00:00:00Z
+            closed_at: null
+      rows:
+        - issue_number: 1
+          state: open
+          is_bot: false
+        - issue_number: 3
+          state: closed
+          is_bot: false
+        - issue_number: 4
+          state: open
+          is_bot: true
+      ordered: false
+  - id: dc-stg-pull-requests-unique
+    name: "stg_pull_requests: pull_request_number is unique"
+    targets:
+      - table:github.staging.stg_pull_requests
+    invariant: false
+    group: stg_github
+    layer: staging
+    plan: engineering-activity-dashboard
+    outcomeIds:
+      - eng-activity
+    kind: data-check
+    expectation:
+      check: unique
+      column: pull_request_number
+  - id: dc-stg-pull-requests-key-present
+    name: "stg_pull_requests: pull_request_number is present"
+    targets:
+      - table:github.staging.stg_pull_requests
+    invariant: false
+    group: stg_github
+    layer: staging
+    plan: engineering-activity-dashboard
+    outcomeIds:
+      - eng-activity
+    kind: data-check
+    expectation:
+      check: not_null
+      column: pull_request_number
+  - id: dc-stg-pull-requests-rows
+    name: stg_pull_requests keeps every raw pull request
+    targets:
+      - table:github.staging.stg_pull_requests
+    invariant: false
+    group: stg_github
+    layer: staging
+    plan: engineering-activity-dashboard
+    outcomeIds:
+      - eng-activity
+    kind: data-check
+    expectation:
+      check: row_count_equals_other
+      other: raw.pull_requests
+  - id: dc-stg-commits-unique
+    name: "stg_commits: commit_sha is unique"
+    targets:
+      - table:github.staging.stg_commits
+    invariant: false
+    group: stg_github
+    layer: staging
+    plan: engineering-activity-dashboard
+    outcomeIds:
+      - eng-activity
+    kind: data-check
+    expectation:
+      check: unique
+      column: commit_sha
+  - id: dc-stg-commits-key-present
+    name: "stg_commits: commit_sha is present"
+    targets:
+      - table:github.staging.stg_commits
+    invariant: false
+    group: stg_github
+    layer: staging
+    plan: engineering-activity-dashboard
+    outcomeIds:
+      - eng-activity
+    kind: data-check
+    expectation:
+      check: not_null
+      column: commit_sha
+  - id: dc-stg-commits-rows
+    name: stg_commits keeps every raw commit
+    targets:
+      - table:github.staging.stg_commits
+    invariant: false
+    group: stg_github
+    layer: staging
+    plan: engineering-activity-dashboard
+    outcomeIds:
+      - eng-activity
+    kind: data-check
+    expectation:
+      check: row_count_equals_other
+      other: raw.commits
+  - id: dc-stg-pr-review-comments-unique
+    name: "stg_pr_review_comments: review_comment_id is unique"
+    targets:
+      - table:github.staging.stg_pr_review_comments
+    invariant: false
+    group: stg_github
+    layer: staging
+    plan: engineering-activity-dashboard
+    outcomeIds:
+      - eng-activity
+    kind: data-check
+    expectation:
+      check: unique
+      column: review_comment_id
+  - id: dc-stg-pr-review-comments-key-present
+    name: "stg_pr_review_comments: review_comment_id and pull_request_number are present"
+    targets:
+      - table:github.staging.stg_pr_review_comments
+    invariant: false
+    group: stg_github
+    layer: staging
+    plan: engineering-activity-dashboard
+    outcomeIds:
+      - eng-activity
+    kind: data-check
+    expectation:
+      check: expression_is_true
+      expression: review_comment_id IS NOT NULL AND pull_request_number IS NOT NULL
+  - id: dc-stg-pr-review-comments-rows
+    name: stg_pr_review_comments keeps every raw review comment
+    targets:
+      - table:github.staging.stg_pr_review_comments
+    invariant: false
+    group: stg_github
+    layer: staging
+    plan: engineering-activity-dashboard
+    outcomeIds:
+      - eng-activity
+    kind: data-check
+    expectation:
+      check: row_count_equals_other
+      other: raw.pull_request_review_comments
+  - id: dc-stg-issues-unique
+    name: "stg_issues: issue_number is unique"
+    targets:
+      - table:github.staging.stg_issues
+    invariant: false
+    group: stg_github
+    layer: staging
+    plan: engineering-activity-dashboard
+    outcomeIds:
+      - eng-activity
+    kind: data-check
+    expectation:
+      check: unique
+      column: issue_number
+  - id: dc-stg-issues-key-present
+    name: "stg_issues: issue_number is present"
+    targets:
+      - table:github.staging.stg_issues
+    invariant: false
+    group: stg_github
+    layer: staging
+    plan: engineering-activity-dashboard
+    outcomeIds:
+      - eng-activity
+    kind: data-check
+    expectation:
+      check: not_null
+      column: issue_number
+  - id: dc-stg-issues-fewer-than-raw
+    name: stg_issues has fewer rows than raw.issues (pull requests removed)
+    targets:
+      - table:github.staging.stg_issues
+    invariant: false
+    group: stg_github
+    layer: staging
+    plan: engineering-activity-dashboard
+    outcomeIds:
+      - eng-activity
+    kind: data-check
+    expectation:
+      check: row_count_fewer_than_other
+      other: raw.issues

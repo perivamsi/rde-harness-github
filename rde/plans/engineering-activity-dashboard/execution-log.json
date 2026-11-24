@@ -1,0 +1,12 @@
+{
+  "version": 1,
+  "plan": "engineering-activity-dashboard",
+  "tasks": {
+    "t-staging-activity": {
+      "startedAt": "2026-11-24T17:14:21.300Z",
+      "summary": "stg_pull_requests also keeps author_type (raw user_type) beside is_bot; stg_pr_review_comments yields a null pull_request_number (row kept) when the URL has no /pulls/, and a Data Check fails if that ever happens."
+    }
+  },
+  "runs": [],
+  "overrides": []
+}

@@ -12,11 +12,11 @@
 - Transform transform:fct_commits (Change c02): Database github
 - Transform transform:fct_pr_review_comments (Change c02): Database github
 - Transform transform:fct_issues (Change c02): Database github
-- Status: approved
+- Status: executing
 - Approved at 2026-11-24T17:13:53.809Z
 - Mode: incremental
 - Planned with no guides on base
-- Created: 2026-11-24T17:07:47.773Z; updated 2026-11-24T17:13:53.809Z
+- Created: 2026-11-24T17:07:47.773Z; updated 2026-11-24T17:14:18.687Z
 
 ## Request
 

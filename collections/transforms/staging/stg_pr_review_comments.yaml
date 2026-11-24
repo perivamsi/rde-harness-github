@@ -1,0 +1,42 @@
+name: stg_pr_review_comments
+description: "One row per pull request review comment (key: review_comment_id). Source: raw.pull_request_review_comments. pull_request_number is parsed from pull_request_url after /pulls/; is_reply = in_reply_to_id is not null; is_bot = user_type is Bot or the login ends in [bot]. Caveats: the extract covers Aug 2026 onwards."
+entity_id: ItHu40daU_tBp8US-OlFQ
+creator_id: internal@metabase.com
+collection_id: t0GnxoSsE-cf0_AXAQmOp
+source_database_id: github
+source:
+  type: query
+  query:
+    lib/type: mbql/query
+    database: github
+    stages:
+    - lib/type: mbql.stage/native
+      native: |-
+        -- One row per review comment (key: review_comment_id). Source: raw.pull_request_review_comments.
+        -- pull_request_number: the integer after '/pulls/' in pull_request_url, null when absent.
+        SELECT
+          rc.id AS review_comment_id,
+          rc.pull_request_review_id AS review_id,
+          CAST(NULLIF(split_part(rc.pull_request_url, '/pulls/', 2), '') AS integer) AS pull_request_number,
+          rc.user_login AS reviewer_login,
+          (rc.in_reply_to_id IS NOT NULL) AS is_reply,
+          (COALESCE(rc.user_type = 'Bot', false) OR COALESCE(rc.user_login LIKE '%[bot]', false)) AS is_bot,
+          rc.created_at
+        FROM raw.pull_request_review_comments AS rc
+      template-tags: {}
+target:
+  database: github
+  type: table
+  schema: staging
+  name: stg_pr_review_comments
+tags:
+- entity_id: ictc0pyHeqjNlkcsiKkTJ
+  position: 0
+  tag_id: u7v_vjnVSqdJ964l09olT
+  serdes/meta:
+  - id: ictc0pyHeqjNlkcsiKkTJ
+    model: TransformTransformTag
+serdes/meta:
+- id: ItHu40daU_tBp8US-OlFQ
+  label: stg_pr_review_comments
+  model: Transform

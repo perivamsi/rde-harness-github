@@ -1,0 +1,31 @@
+{
+  "plan": "engineering-activity-dashboard",
+  "layer": "marts",
+  "tasks": [
+    {
+      "id": "t-marts-activity-facts",
+      "layer": "marts",
+      "outcomeId": "eng-activity",
+      "changeIds": [
+        "c02"
+      ],
+      "guidesExcerpt": "",
+      "instructions": "Write the Marts transform collection and the four fact transforms in schema marts of the github Database: fct_pull_requests (one row per pull_request_number, is_open, hours_to_merge), fct_commits (one row per commit_sha), fct_pr_review_comments (one row per review_comment_id, left join stg_pull_requests for pr_author_login), fct_issues (one row per issue_number, is_open, hours_to_close). Read staging only, list every column, tag each with github_activity. Follow the build-clean-tables playbook.",
+      "testIds": [
+        "tt-fct-pull-requests",
+        "tt-fct-commits",
+        "tt-fct-pr-review-comments",
+        "tt-fct-issues",
+        "dc-fct-pull-requests-unique",
+        "dc-fct-commits-unique",
+        "dc-fct-pr-review-comments-unique",
+        "dc-fct-issues-unique",
+        "dc-fct-pr-review-comments-pr-ref"
+      ],
+      "dependsOn": [
+        "t-staging-activity"
+      ],
+      "status": "pending"
+    }
+  ]
+}

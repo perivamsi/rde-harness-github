@@ -1,0 +1,16 @@
+name: GitHub activity daily
+description: Rebuilds the GitHub activity staging and marts tables every day at 06:00.
+entity_id: SJmWjEk8NNZZG3zvdxlza
+schedule: 0 0 6 * * ? *
+ui_display_type: cron/builder
+job_tags:
+- entity_id: 2PK_8ekRPx608qxdcLKmn
+  position: 0
+  tag_id: u7v_vjnVSqdJ964l09olT
+  serdes/meta:
+  - id: 2PK_8ekRPx608qxdcLKmn
+    model: TransformJobTransformTag
+serdes/meta:
+- id: SJmWjEk8NNZZG3zvdxlza
+  label: github_activity_daily
+  model: TransformJob

@@ -21,7 +21,7 @@
     }
   ],
   "mode": "incremental",
-  "status": "approved",
+  "status": "executing",
   "approval": {
     "at": "2026-11-24T17:13:53.809Z"
   },
@@ -34,7 +34,12 @@
   },
   "taskPreparation": {
     "approvalAt": "2026-11-24T17:13:53.809Z",
-    "layers": []
+    "layers": [
+      "staging",
+      "marts",
+      "semantic",
+      "consumption"
+    ]
   },
   "architecture": [
     {
@@ -1805,5 +1810,5 @@
     }
   ],
   "createdAt": "2026-11-24T17:07:47.773Z",
-  "updatedAt": "2026-11-24T17:13:53.809Z"
+  "updatedAt": "2026-11-24T17:14:18.687Z"
 }
