@@ -15,7 +15,7 @@
       "dependsOn": [
         "t-marts-activity-facts"
       ],
-      "status": "pending"
+      "status": "done"
     },
     {
       "id": "t-semantic-measures",

@@ -1,0 +1,10 @@
+name: Data
+entity_id: librarylibrarydatadat
+slug: data
+parent_id: librarylibrarylibrary
+type: library-data
+is_remote_synced: true
+serdes/meta:
+- id: librarylibrarydatadat
+  label: data
+  model: Collection

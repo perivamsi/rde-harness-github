@@ -1,0 +1,16 @@
+name: commit_sha
+description: The commit's SHA.
+base_type: type/Text
+database_type: text
+semantic_type: type/PK
+table_id: [github, marts, fct_commits]
+active: true
+serdes/meta:
+- id: github
+  model: Database
+- id: marts
+  model: Schema
+- id: fct_commits
+  model: Table
+- id: commit_sha
+  model: Field

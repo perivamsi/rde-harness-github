@@ -1,0 +1,17 @@
+name: pull_request_number
+description: The number of the pull request the comment was left on.
+base_type: type/Integer
+database_type: int4
+semantic_type: type/FK
+table_id: [github, marts, fct_pr_review_comments]
+fk_target_field_id: [github, marts, fct_pull_requests, pull_request_number]
+active: true
+serdes/meta:
+- id: github
+  model: Database
+- id: marts
+  model: Schema
+- id: fct_pr_review_comments
+  model: Table
+- id: pull_request_number
+  model: Field

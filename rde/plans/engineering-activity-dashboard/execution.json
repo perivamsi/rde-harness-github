@@ -23,11 +23,26 @@
     {
       "id": "t-marts-activity-facts",
       "status": "done",
-      "completedAt": "2026-11-24T17:26:39.042Z"
+      "completedAt": "2026-11-24T17:26:39.042Z",
+      "commit": "fd6e189",
+      "runId": "2026-11-24T1726Z-only-dirty",
+      "apply": {
+        "env": "github",
+        "commit": "fd6e18990e8680335d9eb1f74c59c393285be695",
+        "at": "2026-11-24T17:26:39.320Z",
+        "status": "applied",
+        "transforms": [
+          "transform:fct_pr_review_comments",
+          "transform:fct_commits",
+          "transform:fct_pull_requests",
+          "transform:fct_issues"
+        ]
+      }
     },
     {
       "id": "t-semantic-publish",
-      "status": "pending"
+      "status": "done",
+      "completedAt": "2026-11-24T17:27:27.191Z"
     },
     {
       "id": "t-semantic-measures",

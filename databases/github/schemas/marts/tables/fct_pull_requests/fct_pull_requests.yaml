@@ -1,0 +1,22 @@
+name: fct_pull_requests
+display_name: Pull requests
+description: "Draft. One row per GitHub pull request (key: pull_request_number). hours_to_merge is hours from opening to merge, null when not merged. is_bot marks PRs opened by bot accounts (GitHub user type Bot or a login ending in [bot]); use the Human PRs segment to count people only."
+db_id: github
+schema: marts
+active: true
+visibility_type: null
+field_order: database
+initial_sync_status: complete
+is_published: true
+collection_id: librarylibrarydatadat
+data_layer: final
+data_source: metabase-transform
+data_authority: computed
+transform_id: Fnih4I2cae5VGQ2kqWlg9
+serdes/meta:
+- id: github
+  model: Database
+- id: marts
+  model: Schema
+- id: fct_pull_requests
+  model: Table

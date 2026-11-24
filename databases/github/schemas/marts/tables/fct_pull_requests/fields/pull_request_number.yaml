@@ -1,0 +1,16 @@
+name: pull_request_number
+description: The pull request's number in the repository.
+base_type: type/Integer
+database_type: int4
+semantic_type: type/PK
+table_id: [github, marts, fct_pull_requests]
+active: true
+serdes/meta:
+- id: github
+  model: Database
+- id: marts
+  model: Schema
+- id: fct_pull_requests
+  model: Table
+- id: pull_request_number
+  model: Field

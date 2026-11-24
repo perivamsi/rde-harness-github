@@ -8,6 +8,9 @@
     },
     "t-marts-activity-facts": {
       "startedAt": "2026-11-24T17:25:18.623Z"
+    },
+    "t-semantic-publish": {
+      "startedAt": "2026-11-24T17:26:56.681Z"
     }
   },
   "runs": [
@@ -57,6 +60,59 @@
       "deferred": [],
       "failing": [],
       "waived": []
+    },
+    {
+      "runId": "2026-11-24T1726Z-only-dirty",
+      "mode": "only-dirty",
+      "at": "2026-11-24T17:26:54.031Z",
+      "trigger": "complete-task",
+      "taskId": "t-marts-activity-facts",
+      "status": "passed",
+      "dirty": [
+        "tt-fct-pull-requests",
+        "tt-fct-commits",
+        "tt-fct-pr-review-comments",
+        "tt-fct-issues",
+        "dc-fct-pull-requests-unique",
+        "dc-fct-pull-requests-key-present",
+        "dc-fct-pull-requests-rows",
+        "dc-fct-pull-requests-hours-non-negative",
+        "dc-fct-commits-unique",
+        "dc-fct-commits-key-present",
+        "dc-fct-commits-rows",
+        "dc-fct-pr-review-comments-unique",
+        "dc-fct-pr-review-comments-key-present",
+        "dc-fct-pr-review-comments-rows",
+        "dc-fct-pr-review-comments-pr-ref",
+        "dc-fct-issues-unique",
+        "dc-fct-issues-key-present",
+        "dc-fct-issues-rows",
+        "dc-fct-issues-hours-non-negative"
+      ],
+      "ran": [
+        "tt-fct-pull-requests",
+        "tt-fct-commits",
+        "tt-fct-pr-review-comments",
+        "tt-fct-issues",
+        "dc-fct-pull-requests-unique",
+        "dc-fct-pull-requests-key-present",
+        "dc-fct-pull-requests-rows",
+        "dc-fct-pull-requests-hours-non-negative",
+        "dc-fct-commits-unique",
+        "dc-fct-commits-key-present",
+        "dc-fct-commits-rows",
+        "dc-fct-pr-review-comments-unique",
+        "dc-fct-pr-review-comments-key-present",
+        "dc-fct-pr-review-comments-rows",
+        "dc-fct-pr-review-comments-pr-ref",
+        "dc-fct-issues-unique",
+        "dc-fct-issues-key-present",
+        "dc-fct-issues-rows",
+        "dc-fct-issues-hours-non-negative"
+      ],
+      "deferred": [],
+      "failing": [],
+      "waived": []
     }
   ],
   "overrides": [],
@@ -89,6 +145,64 @@
         {
           "id": "transform:stg_pull_requests",
           "name": "stg_pull_requests",
+          "status": "succeeded"
+        }
+      ],
+      "drift": []
+    },
+    {
+      "id": "op-53d30b51-85c5-434b-9933-d5b0a0443d53",
+      "at": "2026-11-24T17:26:39.320Z",
+      "env": "github",
+      "commit": "fd6e18990e8680335d9eb1f74c59c393285be695",
+      "trigger": "complete-task",
+      "taskId": "t-marts-activity-facts",
+      "scope": [
+        "collections/transforms/marts/fct_pr_review_comments.yaml",
+        "collections/transforms/marts/fct_commits.yaml",
+        "collections/transforms/marts/fct_pull_requests.yaml",
+        "collections/transforms/marts/fct_issues.yaml"
+      ],
+      "status": "applied",
+      "transforms": [
+        {
+          "id": "transform:stg_commits",
+          "name": "stg_commits",
+          "status": "not-run"
+        },
+        {
+          "id": "transform:stg_issues",
+          "name": "stg_issues",
+          "status": "not-run"
+        },
+        {
+          "id": "transform:stg_pr_review_comments",
+          "name": "stg_pr_review_comments",
+          "status": "not-run"
+        },
+        {
+          "id": "transform:stg_pull_requests",
+          "name": "stg_pull_requests",
+          "status": "not-run"
+        },
+        {
+          "id": "transform:fct_pr_review_comments",
+          "name": "fct_pr_review_comments",
+          "status": "succeeded"
+        },
+        {
+          "id": "transform:fct_commits",
+          "name": "fct_commits",
+          "status": "succeeded"
+        },
+        {
+          "id": "transform:fct_pull_requests",
+          "name": "fct_pull_requests",
+          "status": "succeeded"
+        },
+        {
+          "id": "transform:fct_issues",
+          "name": "fct_issues",
           "status": "succeeded"
         }
       ],
